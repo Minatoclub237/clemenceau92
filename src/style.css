@@ -382,10 +382,10 @@ img, video, canvas, svg { display: block; }
 .footer__col address { display: flex; flex-direction: column; gap: 10px; font-style: normal; font-size: 16px; line-height: 1.45; color: #e6e6e0; }
 .footer__tel { white-space: nowrap; font-family: var(--futur); font-size: max(16px, 1.15vw); letter-spacing: .03em; color: #fff; }
 .footer__small { margin-top: 14px; font-size: 14px; line-height: 1.4; color: #7d7d76; }
-.footer__hours li { display: flex; justify-content: space-between; gap: 12px; padding-block: 6px; border-bottom: 1px solid #2a2a26; }
+.footer__hours li { display: flex; justify-content: space-between; gap: 12px; padding-block: 6px; border-bottom: 1px solid #2f2f2f; }
 .footer__hours li span { white-space: nowrap; }
 .footer__hours li span:last-child { font-family: var(--mono); font-size: 13px; color: #f2f2ee; }
-.footer__platforms a { display: grid; grid-template-columns: 1fr auto; column-gap: 10px; padding: 8px 0; border-bottom: 1px solid #2a2a26; }
+.footer__platforms a { display: grid; grid-template-columns: 1fr auto; column-gap: 10px; padding: 8px 0; border-bottom: 1px solid #2f2f2f; }
 .footer__platforms b { font-weight: 600; color: #f2f2ee; }
 .footer__platforms small { grid-column: 1; font-size: 13px; color: #8a8a83; }
 .footer__platforms i { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; color: var(--blue); transition: transform .3s var(--ease); }
@@ -1137,4 +1137,49 @@ img, video, canvas, svg { display: block; }
 }
 @media (max-width: 560px) {
   .mecha__cards { grid-template-columns: 1fr; }
+}
+
+/* =====================================================================
+   OFFRE PARE-BRISE — scène « le verre se pose » + réseaux du pied de page
+   ===================================================================== */
+/* Scène retenue à l'écran : les plaques se posent pendant qu'on défile */
+.offer { height: 215vh; padding-block: 0; }
+.offer__stage { position: sticky; top: 0; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+.offer__cards { position: relative; perspective: 1800px; margin-top: 3vw; }
+.ocard { transform-style: preserve-3d; will-change: transform, opacity; overflow: hidden; }
+/* Reflet qui balaie la plaque au moment où elle se pose */
+.ocard__glint { position: absolute; inset: -60% -40%; z-index: 2; pointer-events: none; opacity: 0;
+  background: linear-gradient(104deg, transparent 43%, rgba(255,255,255,.10) 48%, rgba(180,235,255,.30) 51%, rgba(255,255,255,.10) 54%, transparent 59%); }
+/* Fissure qui traverse la rangée, puis se referme */
+.offer__crack { position: absolute; inset: -8% -3%; z-index: 3; width: 106%; height: 116%; pointer-events: none;
+  filter: drop-shadow(0 0 3px rgba(0,173,238,.5));
+  -webkit-mask-image: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), #000 0, #000 22%, rgba(0,0,0,.55) 45%, transparent 78%);
+  mask-image: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), #000 0, #000 22%, rgba(0,0,0,.55) 45%, transparent 78%); }
+.offer__crack path { fill: none; stroke: #fff; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 1; stroke-dashoffset: 1; }
+.offer__crack .crack__ray { stroke-opacity: .8; }
+.offer__crack .crack__branch { stroke-opacity: .55; }
+.offer__crack .crack__ring { stroke-opacity: .45; }
+.offer__crack .crack__impact { fill: rgba(255,255,255,.18); stroke: rgba(255,255,255,.9); stroke-width: 1.2; opacity: 0; }
+
+/* ---------------- RÉSEAUX DU PIED DE PAGE : logos officiels ---------------- */
+.footer__platforms .plat { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 12px; }
+/* la flèche reprend la 3e colonne (l'ancienne règle la plaçait en colonne 2, sur le texte) */
+.footer__platforms .plat i { grid-column: 3; grid-row: auto; }
+.footer__platforms .plat small { grid-column: auto; }
+.plat__ico { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,.07); color: #d9d9d3;
+  transition: background-color .35s, color .35s, transform .35s var(--ease); }
+.plat__txt { display: flex; flex-direction: column; min-width: 0; }
+.footer__platforms .plat:hover .plat__ico { transform: translateY(-2px); color: #fff; }
+.plat--google:hover .plat__ico { background: #4285f4; }
+.plat--facebook:hover .plat__ico { background: #0866ff; }
+.plat--instagram:hover .plat__ico { background: radial-gradient(circle at 30% 107%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+.plat--whatsapp:hover .plat__ico { background: #25d366; color: #0b3d20; }
+
+@media (max-width: 900px) {
+  /* Mobile : pas de scène retenue, les plaques se posent à l'entrée de la section */
+  .offer { height: auto; padding-block: 80px 10px; }
+  .offer__stage { position: static; min-height: 0; display: block; }
+  .offer__cards { margin-top: 26px; perspective: 900px; }
+  /* Cartes empilées : la fissure passerait sur le texte */
+  .offer__crack { display: none; }
 }

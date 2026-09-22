@@ -15,7 +15,8 @@ import { initCrack } from './crack.js'
 import { initLightbox } from './lightbox.js'
 import { initZone } from './zone.js'
 import { autoParallax, autoTilt, scroll3d, stagger, parallax } from './motion3d.js'
-import { siWhatsapp } from 'simple-icons'
+import { initOffer } from './offer.js'
+import { siWhatsapp, siGoogle, siFacebook, siInstagram } from 'simple-icons'
 
 gsap.registerPlugin(ScrollTrigger)
 // Mobile : la barre d'adresse qui se replie ne doit pas recalculer (et faire sauter) les animations
@@ -114,6 +115,15 @@ renderBrands(document.querySelector('.brands__track'))
 document.querySelectorAll('[data-wa-icon]').forEach((el) => {
   el.insertAdjacentHTML('afterbegin', `<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="${siWhatsapp.path}" fill="currentColor"/></svg>`)
 })
+
+/* ---------- Logos des réseaux dans le pied de page (simple-icons, couleurs officielles) ---------- */
+{
+  const BRANDS = { google: siGoogle, facebook: siFacebook, instagram: siInstagram, whatsapp: siWhatsapp }
+  document.querySelectorAll('[data-brand]').forEach((el) => {
+    const icon = BRANDS[el.dataset.brand]
+    if (icon) el.innerHTML = `<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="${icon.path}" fill="currentColor"/></svg>`
+  })
+}
 
 /* ---------- Fenêtres légales (dialog natif) ---------- */
 document.querySelectorAll('[data-dialog]').forEach((btn) => {
@@ -438,10 +448,7 @@ function buildMotion({ intro }) {
   })
 
   /* ================= OFFRE PARE-BRISE ================= */
-  const offer = document.getElementById('offre')
-  gsap.utils.toArray(offer.querySelectorAll('.ocard')).forEach((card, i) => scroll3d(card, { rotateX: 22, z: -180, y: 70, start: 'top 95%', end: `top ${58 - i * 4}%` }))
-  autoParallax(offer)
-  autoTilt(offer, { max: 6 })
+  initOffer(document.getElementById('offre'), { reduced })
 
   /* ================= MÉCANIQUE ================= */
   const mecha = document.getElementById('mecanique')

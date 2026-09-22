@@ -335,30 +335,33 @@
     </section>
 
     <!-- OFFRE PARE-BRISE : deux avantages au choix, conditions affichées -->
-    <section class="offer container" id="offre" aria-labelledby="offer-title">
+    <section class="offer" id="offre" aria-labelledby="offer-title">
+      <div class="offer__stage container">
       <div class="offer__head">
         <p class="label" data-scroll-text>Offre pare-brise</p>
         <h2 class="offer__title" id="offer-title" data-flip>Franchise remboursée<br /><span class="accent">ou révision offerte</span></h2>
         <p class="offer__lead" data-scroll-read>Pour un remplacement de pare-brise pris en charge par votre assurance, vous choisissez l’un des deux avantages. Dites-le-nous avant la réparation&nbsp;: l’offre est portée sur le devis, puis sur la facture.</p>
       </div>
       <div class="offer__cards">
-        <article class="ocard" data-tilt data-parallax="-.06">
+        <svg class="offer__crack" aria-hidden="true"></svg>
+        <article class="ocard"><i class="ocard__glint" aria-hidden="true"></i>
           <span class="ocard__num">01</span>
           <h3 class="ocard__title">Franchise<br /><span class="accent">remboursée</span></h3>
           <p class="ocard__text">La franchise bris de glace retenue par votre assureur vous est remboursée par l’atelier.</p>
         </article>
-        <article class="ocard" data-tilt data-parallax=".05">
+        <article class="ocard"><i class="ocard__glint" aria-hidden="true"></i>
           <span class="ocard__num">02</span>
           <h3 class="ocard__title">Révision-vidange<br /><span class="accent">offerte</span></h3>
           <p class="ocard__text">Vous préférez l’entretien&nbsp;? L’atelier offre la révision-vidange à la place du remboursement.</p>
         </article>
-        <article class="ocard ocard--cta" data-tilt data-parallax="-.04">
+        <article class="ocard ocard--cta"><i class="ocard__glint" aria-hidden="true"></i>
           <h3 class="ocard__title">Votre impact<br /><span class="accent">en photo</span></h3>
           <p class="ocard__text">Envoyez une photo de l’impact ou de la fissure&nbsp;: vous saurez s’il faut remplacer le pare-brise, et sous quel délai.</p>
           <a class="wa-btn" href="https://wa.me/33777007176?text=Bonjour%2C%20je%20souhaite%20un%20devis.%20Voici%20les%20photos%20%3A" target="_blank" rel="noopener" data-wa-icon><span>Envoyer sur WhatsApp</span></a>
         </article>
       </div>
       <p class="offer__terms">Une seule des deux offres, au choix, pour un remplacement pris en charge au titre de la garantie bris de glace. Selon votre contrat et les conditions de l’atelier&nbsp;; l’avantage figure sur le devis et sur la facture. Détails au <a href="tel:+33777007176">07 77 00 71 76</a>.</p>
+      </div>
     </section>
 
     <!-- CATALOGUE : carrousel 3D piloté par le défilement -->
@@ -815,9 +818,10 @@
         <div class="footer__col">
           <p class="label">Avis &amp; réseaux</p>
           <ul class="footer__platforms">
-            <li><a href="https://maps.app.goo.gl/KmsS6edu2QDk12WX9" target="_blank" rel="noopener"><b>Google</b><small>5,0 · 291 avis</small><i aria-hidden="true">↗</i></a></li>
-            <li><a href="https://www.facebook.com/p/Carrosserie-Clemenceau-92-100087219401679/" target="_blank" rel="noopener"><b>Facebook</b><small>Carrosserie Clemenceau 92</small><i aria-hidden="true">↗</i></a></li>
-            <li><a href="https://www.instagram.com/carrosserieclemenceau92/" target="_blank" rel="noopener"><b>Instagram</b><small>@carrosserieclemenceau92</small><i aria-hidden="true">↗</i></a></li>
+            <li><a class="plat plat--google" href="https://maps.app.goo.gl/KmsS6edu2QDk12WX9" target="_blank" rel="noopener"><span class="plat__ico" data-brand="google" aria-hidden="true"></span><span class="plat__txt"><b>Google</b><small>5,0 · 291 avis</small></span><i aria-hidden="true">↗</i></a></li>
+            <li><a class="plat plat--facebook" href="https://www.facebook.com/p/Carrosserie-Clemenceau-92-100087219401679/" target="_blank" rel="noopener"><span class="plat__ico" data-brand="facebook" aria-hidden="true"></span><span class="plat__txt"><b>Facebook</b><small>Page de l’atelier</small></span><i aria-hidden="true">↗</i></a></li>
+            <li><a class="plat plat--instagram" href="https://www.instagram.com/carrosserieclemenceau92/" target="_blank" rel="noopener"><span class="plat__ico" data-brand="instagram" aria-hidden="true"></span><span class="plat__txt"><b>Instagram</b><small>@carrosserieclemenceau92</small></span><i aria-hidden="true">↗</i></a></li>
+            <li><a class="plat plat--whatsapp" href="https://wa.me/33777007176?text=Bonjour%2C%20je%20souhaite%20un%20devis.%20Voici%20les%20photos%20%3A" target="_blank" rel="noopener"><span class="plat__ico" data-brand="whatsapp" aria-hidden="true"></span><span class="plat__txt"><b>WhatsApp</b><small>07 77 00 71 76</small></span><i aria-hidden="true">↗</i></a></li>
           </ul>
         </div>
       </div>
