@@ -18,11 +18,8 @@ export function initOffer(section, { reduced }) {
 
   // Impact placé dans l'espace entre la 1re et la 2e plaque : la fissure ne passe pas sur les titres
   const crack = crackSvg ? initCrack(crackSvg, { seed: 41, at: [0.33, 0.52], scale: 1.05 }) : null
-  const desktop = window.matchMedia('(min-width: 901px)').matches
   const tl = gsap.timeline({
-    scrollTrigger: desktop
-      ? { trigger: section, start: 'top top', end: 'bottom bottom', scrub: 0.7 }
-      : { trigger: section, start: 'top 80%', end: 'bottom 85%', scrub: 0.7 },
+    scrollTrigger: { trigger: section, start: 'top top', end: 'bottom bottom', scrub: 0.7 },
   })
 
   cards.forEach((card, i) => {

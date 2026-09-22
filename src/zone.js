@@ -18,11 +18,9 @@ export function initZone(section, { reduced }) {
     section.classList.add('is-in') // tout visible, sans animation
   } else {
     // Sur mobile la scène n'est pas retenue : le tracé suit l'entrée de la section
-    const desktop = window.matchMedia('(min-width: 901px)').matches
+    // Même scène retenue sur mobile : le contenu tient dans la hauteur d'écran
     const tl = gsap.timeline({
-      scrollTrigger: desktop
-        ? { trigger: section, start: 'top top', end: 'bottom bottom', scrub: 0.6 }
-        : { trigger: section, start: 'top 78%', end: 'bottom 75%', scrub: 0.6 },
+      scrollTrigger: { trigger: section, start: 'top top', end: 'bottom bottom', scrub: 0.6 },
     })
 
     tl.fromTo(svg, { scale: 0.92, opacity: 0.3 }, { scale: 1, opacity: 1, duration: 1.4, ease: 'power2.out' }, 0)

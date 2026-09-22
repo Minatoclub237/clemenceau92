@@ -24,7 +24,14 @@ export function scroll3d(el, { rotateX = 26, z = -160, y = 60, start = 'top 92%'
 /** Bascule 3D suivant la souris (ordinateur seulement), sans re-rendu ni listener par image.
  *  ⚠ quickTo ne résout pas les alias : utiliser rotationX / rotationY, pas rotateX / rotateY. */
 export function tilt3d(el, { max = 7, scale = 1.015 } = {}) {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    // Écran tactile : même bascule, pilotée par la traversée de l'écran au lieu de la souris
+    gsap.fromTo(el, { rotationX: max * 0.9, rotationY: -max * 0.5 }, {
+      rotationX: -max * 0.9, rotationY: max * 0.5, ease: 'none',
+      scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 0.8 },
+    })
+    return
+  }
   const rx = gsap.quickTo(el, 'rotationX', { duration: 0.5, ease: 'power3.out' })
   const ry = gsap.quickTo(el, 'rotationY', { duration: 0.5, ease: 'power3.out' })
   const sc = gsap.quickTo(el, 'scale', { duration: 0.5, ease: 'power3.out' })

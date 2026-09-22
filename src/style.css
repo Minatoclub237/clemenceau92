@@ -1060,9 +1060,10 @@ img, video, canvas, svg { display: block; }
 .zone__pt.is-on .zone__name { fill: var(--cyan); }
 @media (prefers-reduced-motion: reduce) { .zone__pulse { animation: none; } }
 @media (max-width: 900px) {
-  /* Mobile : pas de scène retenue (le contenu dépasse la hauteur d'écran), le tracé suit l'entrée de la section */
-  .zone { height: auto; padding-block: 80px 20px; }
-  .zone__stage { position: static; height: auto; }
+  /* Scène retenue comme sur ordinateur (le contenu tient dans la hauteur d'écran) */
+  .zone { height: 230vh; padding-block: 0; }
+  .zone__stage { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; }
+  .zone__title { font-size: max(22px, 6.4vw); }
   .zone__grid { grid-template-columns: 1fr; gap: 28px; }
   .zone__text .label { margin-bottom: 14px; }
   .zone__lead, .zone__list { margin-top: 18px; }
@@ -1091,7 +1092,7 @@ img, video, canvas, svg { display: block; }
 .offer__lead { margin-top: 1.4vw; font-size: max(16px, 1.2vw); line-height: 1.45; color: #cfcfc8; }
 .offer__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; margin-top: 3.4vw; perspective: 1400px; }
 .ocard { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 2vw 1.8vw 2.2vw; border: 1px solid #3d3d3d; border-radius: 16px;
-  background: linear-gradient(160deg, #24242010, #33333360); transform-style: preserve-3d; will-change: transform; }
+  background: linear-gradient(160deg, rgba(50,50,50,.94), rgba(40,40,40,.97)); transform-style: preserve-3d; will-change: transform; }
 .ocard::after { content: ''; position: absolute; inset: 0; border-radius: 16px; pointer-events: none;
   background: radial-gradient(70% 60% at 50% 0%, rgba(0,173,238,.14), rgba(0,173,238,0) 70%); opacity: 0; transition: opacity .45s; }
 .ocard:hover::after { opacity: 1; }
@@ -1176,10 +1177,15 @@ img, video, canvas, svg { display: block; }
 .plat--whatsapp:hover .plat__ico { background: #25d366; color: #0b3d20; }
 
 @media (max-width: 900px) {
-  /* Mobile : pas de scène retenue, les plaques se posent à l'entrée de la section */
-  .offer { height: auto; padding-block: 80px 10px; }
-  .offer__stage { position: static; min-height: 0; display: block; }
-  .offer__cards { margin-top: 26px; perspective: 900px; }
-  /* Cartes empilées : la fissure passerait sur le texte */
-  .offer__crack { display: none; }
+  /* Scène retenue comme sur ordinateur : les plaques se posent pendant qu'on défile */
+  .offer { height: 250vh; padding-block: 0; }
+  .offer__stage { position: sticky; top: 0; min-height: 100vh; justify-content: center; }
+  .offer__title { font-size: max(21px, 6.2vw); }
+  .offer__lead { font-size: 14px; line-height: 1.4; margin-top: 10px; }
+  .offer__cards { margin-top: 16px; gap: 10px; perspective: 900px; }
+  .ocard { padding: 14px 16px 16px; gap: 7px; }
+  .ocard__title { font-size: 17px; }
+  .ocard__text { font-size: 14px; line-height: 1.35; }
+  .ocard--cta .wa-btn { padding: 9px 14px; font-size: 14px; }
+  .offer__terms { margin-top: 14px; font-size: 11px; line-height: 1.45; }
 }
