@@ -7,12 +7,12 @@
   <style>
     html,body{background:#181815}
     #loader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0b0b0a;clip-path:inset(0 0 0 0);animation:ld-safety 0s linear 7s forwards}
-    .loader__inner{display:flex;flex-direction:column;align-items:center;gap:26px;width:min(520px,74vw)}
+    .loader__inner{display:flex;flex-direction:column;align-items:center;gap:26px;width:min(420px,70vw)}
     .loader__logo{position:relative;width:100%}
     .loader__logo img{display:block;width:100%;height:auto;clip-path:inset(0 100% 0 0);animation:ld-wipe 1s cubic-bezier(.65,0,.35,1) .2s forwards}
-    .loader__logo::after{content:"";position:absolute;top:-10%;bottom:-10%;left:0;width:2px;background:#8fb0ff;box-shadow:0 0 22px 6px rgba(46,108,255,.85);opacity:0;animation:ld-scan 1s cubic-bezier(.65,0,.35,1) .2s forwards}
+    .loader__logo::after{content:"";position:absolute;top:-10%;bottom:-10%;left:0;width:2px;background:#8fdcff;box-shadow:0 0 22px 6px rgba(0,173,238,.85);opacity:0;animation:ld-scan 1s cubic-bezier(.65,0,.35,1) .2s forwards}
     .loader__bar{position:relative;width:100%;height:1px;background:rgba(255,255,255,.12);overflow:hidden}
-    .loader__bar i{position:absolute;inset:0;background:#2e6cff;transform:scaleX(0);transform-origin:left;animation:ld-bar 1.3s cubic-bezier(.2,.7,.2,1) forwards}
+    .loader__bar i{position:absolute;inset:0;background:#00adee;transform:scaleX(0);transform-origin:left;animation:ld-bar 1.3s cubic-bezier(.2,.7,.2,1) forwards}
     .loader__label{font:11px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5);opacity:0;animation:ld-fade .7s ease .8s forwards}
     @keyframes ld-wipe{to{clip-path:inset(0 0 0 0)}}
     @keyframes ld-scan{0%{left:0;opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
@@ -24,11 +24,11 @@
     @media (prefers-reduced-motion:reduce){.loader__logo img{clip-path:none;animation:none}.loader__logo::after{display:none}}
   </style>
   <noscript><style>#loader{display:none}</style></noscript>
-  <script>try{if(sessionStorage.getItem("vp-intro"))document.documentElement.classList.add("loader-quick")}catch(e){}</script>
-  <link rel="preload" as="image" href="/media/logo-footer.webp" />
-  <title>Carrosserie Van Praet — Carrosserie, peinture et mécanique à Schaerbeek</title>
-  <meta name="description" content="Carrosserie Van Praet, rue François-Joseph Navez 103 à Schaerbeek : carrosserie, peinture en cabine, polissage et mécanique toutes marques. Devis gratuit sous 24 h, prix fixe, garantie 2 ans." />
-  <link rel="preload" as="image" href="/media/hero-car-poster.webp" />
+  <script>try{if(sessionStorage.getItem("c92-intro"))document.documentElement.classList.add("loader-quick")}catch(e){}</script>
+  <link rel="preload" as="image" href="/media/logo-stack-dark.svg" />
+  <title>Carrosserie et pare-brise à Nanterre — Clemenceau 92</title>
+  <meta name="description" content="Carrosserie et pare-brise au 95 avenue de la Liberté, à Nanterre : tôlerie, peinture en cabine, sinistre suivi avec l’expert à l’atelier. Noté 5,0 sur 5 par 291 clients sur Google." />
+  <link rel="preload" as="image" href="/media/hero-atelier.webp" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -38,53 +38,47 @@
   {
     "@context": "https://schema.org",
     "@type": "AutoBodyShop",
-    "name": "Carrosserie Van Praet",
-    "legalName": "Carrosserie Van Praet SRL",
-    "vatID": "BE0789397084",
-    "telephone": "+32477777036",
-    "email": "carrosserievanpraet@gmail.com",
-    "address": { "@type": "PostalAddress", "streetAddress": "Rue François-Joseph Navez 103", "postalCode": "1030", "addressLocality": "Schaerbeek", "addressRegion": "Bruxelles-Capitale", "addressCountry": "BE" },
-    "geo": { "@type": "GeoCoordinates", "latitude": 50.8725256, "longitude": 4.3733313 },
+    "name": "Carrosserie / Pare-Brise Clemenceau 92",
+    "alternateName": ["Clemenceau 92", "CLM 92"],
+    "legalName": "CLEMENCEAU 92",
+    "vatID": "FR77849779806",
+    "identifier": { "@type": "PropertyValue", "propertyID": "SIRET", "value": "84977980600058" },
+    "foundingDate": "2019-04-04",
+    "telephone": "+33777007176",
+    "address": { "@type": "PostalAddress", "streetAddress": "95 avenue de la Liberté", "postalCode": "92000", "addressLocality": "Nanterre", "addressRegion": "Île-de-France", "addressCountry": "FR" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 48.8908464, "longitude": 2.212844 },
+    "hasMap": "https://maps.app.goo.gl/KmsS6edu2QDk12WX9",
     "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "13:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "14:00", "closes": "18:00" }
     ],
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "3.9", "bestRating": "5", "reviewCount": "28" },
-    "availableLanguage": ["fr", "nl"],
-    "paymentAccepted": "Cash, Bancontact, Credit Card"
+    "areaServed": ["Nanterre", "Rueil-Malmaison", "Suresnes", "Puteaux", "Colombes"],
+    "sameAs": ["https://www.facebook.com/p/Carrosserie-Clemenceau-92-100087219401679/", "https://www.instagram.com/carrosserieclemenceau92/"]
   }
   </script>
 </head>
 <body>
   <div id="loader" aria-hidden="true">
     <div class="loader__inner">
-      <div class="loader__logo"><img src="/media/logo-footer.webp" width="952" height="304" alt="" /></div>
+      <div class="loader__logo"><img src="/media/logo-stack-dark.svg" width="520" height="127" alt="" /></div>
       <div class="loader__bar"><i></i></div>
-      <p class="loader__label">Schaerbeek — 1030</p>
+      <p class="loader__label">Nanterre — 92000</p>
     </div>
   </div>
 
   <header class="nav" id="nav">
     <div class="nav__bar">
-<a class="nav__logo" href="#top" aria-label="Van Praet Carrosserie — accueil"><img class="nav__logo-img" src="/media/logo-nav.webp" width="900" height="307" alt="Van Praet Carrosserie" fetchpriority="high" /></a>
+      <a class="nav__logo" href="#top" aria-label="Clemenceau 92 — accueil"><picture><source media="(max-width: 900px)" srcset="/media/logo-stack-light.svg" width="520" height="127" /><img class="nav__logo-img" src="/media/logo-h-light.svg" width="782" height="56" alt="Clemenceau 92" fetchpriority="high" /></picture></a>
       <nav class="nav__links" aria-label="Navigation principale">
-        <a href="#services" data-i18n="t001">Services</a>
-        <a href="#atelier" data-i18n="t002">Atelier</a>
-        <a href="#avis" data-i18n="t003">Avis</a>
+        <a href="#services">Services</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#avis-google">Avis</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav__cta">
-        <div class="lang" data-lang-switch>
-          <button type="button" class="lang__current" aria-haspopup="true" aria-expanded="false" aria-label="Langue · Language · Taal"><span data-lang-current>FR</span><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="lang__menu" role="group" aria-label="Langue · Language · Taal">
-            <button type="button" class="lang__opt" data-lang="fr" lang="fr" title="Français" aria-pressed="true">FR</button>
-            <button type="button" class="lang__opt" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button>
-            <button type="button" class="lang__opt" data-lang="nl" lang="nl" title="Nederlands" aria-pressed="false">NL</button>
-          </div>
-        </div>
-        <a class="nav__quote" href="#devis" data-i18n="t004">Devis gratuit</a>
-        <a class="nav__plus" href="tel:+32477777036" aria-label="Appeler le 0477 77 70 36">+</a>
+        <a class="nav__quote" href="#devis">Devis gratuit</a>
+        <a class="nav__plus" href="tel:+33777007176" aria-label="Appeler le 07 77 00 71 76">+</a>
         <button type="button" class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -94,96 +88,92 @@
   <div class="mmenu" id="mmenu" inert>
     <nav class="mmenu__inner" aria-label="Menu">
       <ul class="mmenu__list">
-        <li style="--i:0"><a href="#services"><span class="mmenu__num">01</span><span class="mmenu__label" data-i18n="t001">Services</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:1"><a href="#prestations"><span class="mmenu__num">02</span><span class="mmenu__label" data-i18n="t169">Toutes les prestations</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:2"><a href="#atelier"><span class="mmenu__num">03</span><span class="mmenu__label" data-i18n="t170">L’atelier</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:3"><a href="#etapes"><span class="mmenu__num">04</span><span class="mmenu__label" data-i18n="t090">Comment ça se passe</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:4"><a href="#avis"><span class="mmenu__num">05</span><span class="mmenu__label" data-i18n="t103">Avis clients</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:5"><a href="#faq"><span class="mmenu__num">06</span><span class="mmenu__label">FAQ</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:6"><a href="#devis"><span class="mmenu__num">07</span><span class="mmenu__label" data-i18n="t004">Devis gratuit</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:0"><a href="#services"><span class="mmenu__num">01</span><span class="mmenu__label">Services</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:1"><a href="#atelier"><span class="mmenu__num">02</span><span class="mmenu__label">L’atelier</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:2"><a href="#prestations"><span class="mmenu__num">03</span><span class="mmenu__label">Toutes les prestations</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:3"><a href="#realisations"><span class="mmenu__num">04</span><span class="mmenu__label">Réalisations</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:4"><a href="#avis-google"><span class="mmenu__num">05</span><span class="mmenu__label">Avis Google</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:5"><a href="#etapes"><span class="mmenu__num">06</span><span class="mmenu__label">Comment ça se passe</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:6"><a href="#faq"><span class="mmenu__num">07</span><span class="mmenu__label">FAQ</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:7"><a href="#devis"><span class="mmenu__num">08</span><span class="mmenu__label">Devis gratuit</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
       </ul>
-      <div class="mmenu__foot" style="--i:7">
-        <p class="mmenu__hours"><span class="label" data-i18n="t163">Horaires</span><span><span data-i18n="t164">Lun – ven</span> 9:00 – 18:00 · <span data-i18n="t165">Samedi</span> 9:00 – 14:00</span></p>
+      <div class="mmenu__foot" style="--i:8">
+        <p class="mmenu__hours"><span class="label">Horaires</span><span>Lun – ven 9:00 – 13:00 · 14:00 – 18:00</span></p>
         <div class="mmenu__actions">
-          <a class="mmenu__call" href="tel:+32477777036"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z" fill="currentColor"/></svg><span>0477 77 70 36</span></a>
-          <a class="mmenu__route" href="https://maps.app.goo.gl/2hibFTy7Ff3hPFmB8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span data-i18n="t158">Itinéraire <span>↗</span></span></a>
+          <a class="mmenu__call" href="tel:+33777007176"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z" fill="currentColor"/></svg><span>07 77 00 71 76</span></a>
+          <a class="mmenu__route" href="https://maps.app.goo.gl/KmsS6edu2QDk12WX9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Itinéraire <span>↗</span></span></a>
         </div>
       </div>
     </nav>
   </div>
 
   <main id="top">
-    <!-- HERO : séquence au défilement (scène sticky) -->
+    <!-- HERO : l'atelier vu à travers un pare-brise fissuré, qui se répare au défilement -->
     <section class="hero" id="hero">
       <div class="hero__stage">
         <div class="hero__media">
-          <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="/media/hero-car-poster.webp" src="/media/hero-car.mp4"></video>
+          <img class="hero__img" src="/media/hero-atelier.webp" width="2016" height="1512" alt="L’atelier Clemenceau 92 à Nanterre : cabine de peinture et véhicule masqué avant peinture" fetchpriority="high" />
+          <svg class="hero__crack" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+          <i class="hero__glare" aria-hidden="true"></i>
         </div>
 
         <div class="hero__content container">
           <!-- Temps 1 : titre + informations majeures -->
           <div class="hero__text">
-            <p class="label hero__eyebrow" data-i18n="t005">Carrosserie Van Praet · Schaerbeek, Bruxelles</p>
+            <p class="label hero__eyebrow">Carrosserie · Pare-brise · Nanterre (92)</p>
             <h1 class="hero__title">
-              <span class="mask"><span class="mask__line" data-chars data-i18n="t006">Carrosserie,</span></span>
-              <span class="mask"><span class="mask__line" data-chars data-i18n="t007">peinture &amp;</span></span>
-              <span class="mask"><span class="mask__line" data-chars data-i18n="t008"><span class="accent">mécanique</span></span></span>
+              <span class="mask"><span class="mask__line" data-chars>Carrosserie</span></span>
+              <span class="mask"><span class="mask__line" data-chars>&amp; <span class="accent">pare-brise</span></span></span>
+              <span class="mask"><span class="mask__line" data-chars>à Nanterre</span></span>
             </h1>
-            <p class="hero__sub"><span class="mask"><span class="mask__line" data-i18n="t009">Toutes marques, rue François-Joseph Navez 103.</span></span><span class="mask"><span class="mask__line" data-i18n="t010">Devis gratuit sous 24&nbsp;h, garantie 2&nbsp;ans.</span></span></p>
+            <p class="hero__sub"><span class="mask"><span class="mask__line">Tôlerie, peinture en cabine et pare-brise, 95&nbsp;avenue de la Liberté.</span></span><span class="mask"><span class="mask__line">Votre sinistre suivi avec l’expert, ici, à l’atelier.</span></span></p>
             <div class="hero__actions">
-              <!-- CTA principal : explorer le catalogue (différent de la nav) -->
-              <a class="hero-btn" href="#prestations">
-                <span class="hero-btn__label" data-i18n="t011">Découvrir nos 51 prestations</span>
+              <a class="hero-btn" href="#devis">
+                <span class="hero-btn__label">Devis gratuit sur photos</span>
                 <span class="hero-btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </a>
-              <!-- CTA secondaire : appel avec statut d'ouverture en direct -->
-              <a class="hero-call" href="tel:+32477777036" aria-describedby="hero-status">
+              <!-- CTA secondaire : appel avec statut d'ouverture en direct (pause de midi comprise) -->
+              <a class="hero-call" href="tel:+33777007176" aria-describedby="hero-status">
                 <span class="hero-call__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z" fill="currentColor"/></svg></span>
                 <span class="hero-call__text">
-                  <span class="hero-call__status" id="hero-status"><i class="hero-call__dot"></i><span data-open-status data-i18n="t012">Horaires : lun – sam</span></span>
-                  <span class="hero-call__number">0477 77 70 36</span>
+                  <span class="hero-call__status" id="hero-status"><i class="hero-call__dot"></i><span data-open-status>Lun – ven · 9 h – 18 h</span></span>
+                  <span class="hero-call__number">07 77 00 71 76</span>
                 </span>
               </a>
             </div>
           </div>
 
-          <!-- Liens vers les avis -->
+          <!-- Note Google -->
           <div class="hero__reviews">
-            <a class="hero-badge" href="https://share.google/LqZYZ5JYPHfEs9HVP" target="_blank" rel="noopener">
+            <a class="hero-badge" href="https://maps.app.goo.gl/KmsS6edu2QDk12WX9" target="_blank" rel="noopener">
               <span class="hero-badge__src">Google</span>
-              <span class="hero-badge__score" data-i18n="t013">3,9</span>
-              <span class="hero-badge__stars" aria-label="3,9 sur 5"><span class="hero-badge__stars-bg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg></span><span class="hero-badge__stars-fill" style="width:78%"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg></span></span>
-              <span class="hero-badge__count"><span data-i18n="t014">28 avis</span> <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </a>
-            <a class="hero-badge" href="https://fixico.be/fr/villes/schaerbeek/garage-van-praet" target="_blank" rel="noopener">
-              <span class="hero-badge__src">Fixico</span>
-              <span class="hero-badge__score" data-i18n="t015">9,5<small>/10</small></span>
-              <span class="hero-badge__bar"><i style="width:95%"></i></span>
-              <span class="hero-badge__count"><span data-i18n="t016">34 avis</span> <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="hero-badge__score">5,0</span>
+              <span class="hero-badge__stars" aria-label="5 sur 5"><span class="hero-badge__stars-bg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg></span><span class="hero-badge__stars-fill" style="width:100%"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg></span></span>
+              <span class="hero-badge__count"><span>291 avis</span> <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </a>
           </div>
 
           <!-- Temps 2 : les chiffres montent pendant le défilement -->
           <div class="hero__numbers" aria-label="L’atelier en chiffres">
-            <div class="hero-num"><span class="hero-num__value"><b data-count="24">0</b>&nbsp;<span class="hero-num__unit" data-i18n="t017">h</span></span><span class="hero-num__label" data-i18n="t019">pour recevoir votre devis gratuit</span></div>
-            <div class="hero-num"><span class="hero-num__value"><b data-count="2">0</b>&nbsp;<span class="hero-num__unit" data-i18n="t018">ans</span></span><span class="hero-num__label" data-i18n="t020">de garantie sur les réparations</span></div>
-            <div class="hero-num"><span class="hero-num__value"><b data-count="40">0</b>+</span><span class="hero-num__label" data-i18n="t021">marques prises en charge</span></div>
-            <div class="hero-num"><span class="hero-num__value"><b data-count="51">0</b></span><span class="hero-num__label" data-i18n="t022">prestations carrosserie &amp; mécanique</span></div>
+            <div class="hero-num"><span class="hero-num__value"><b data-count="291">0</b></span><span class="hero-num__label">avis Google, note moyenne de 5,0 sur 5</span></div>
+            <div class="hero-num"><span class="hero-num__value"><b data-count="200">0</b>&nbsp;<span class="hero-num__unit">€</span></span><span class="hero-num__label">la peinture d’un élément sans bosse</span></div>
+            <div class="hero-num"><span class="hero-num__value"><b data-count="300">0</b>&nbsp;<span class="hero-num__unit">€</span></span><span class="hero-num__label">un élément avec une bosse légère</span></div>
+            <div class="hero-num"><span class="hero-num__value"><b data-count="2019">0</b></span><span class="hero-num__label">création de l’entreprise, à Nanterre</span></div>
           </div>
         </div>
 
-        <span class="hero__scroll label" aria-hidden="true" data-i18n="t023">Faites défiler</span>
+        <span class="hero__scroll label" aria-hidden="true">Faites défiler</span>
 
         <!-- Texte défilant : informations majeures en boucle -->
         <div class="hero__ticker" aria-label="Informations pratiques">
           <div class="hero__ticker-track">
-            <span data-i18n="t024">Rue François-Joseph Navez 103, 1030 Schaerbeek</span><i>✦</i>
-            <span data-i18n="t025">Lun – ven 9:00 – 18:00 · Sam 9:00 – 14:00</span><i>✦</i>
-            <span data-i18n="t026">Devis gratuit sous 24 h</span><i>✦</i>
-            <span data-i18n="t027">Prix annoncé = prix payé</span><i>✦</i>
-            <span data-i18n="t028">Garantie 2 ans</span><i>✦</i>
-            <span data-i18n="t029">Accueil FR · NL</span><i>✦</i>
-            <span>0477 77 70 36</span><i>✦</i>
+            <span>95 avenue de la Liberté, 92000 Nanterre</span><i>✦</i>
+            <span>Lun – ven 9:00 – 13:00 · 14:00 – 18:00</span><i>✦</i>
+            <span>Devis gratuit</span><i>✦</i>
+            <span>Visite de l’expert à l’atelier</span><i>✦</i>
+            <span>Gestion de votre sinistre</span><i>✦</i>
+            <span>Voitures · utilitaires · motos</span><i>✦</i>
+            <span>07 77 00 71 76 · 01 43 33 04 95</span><i>✦</i>
           </div>
         </div>
       </div>
@@ -193,8 +183,8 @@
     <section class="expertise container" id="services">
       <div class="cross-row"><i class="cross"></i><i class="cross"></i></div>
       <div class="expertise__intro">
-        <p class="label" data-scroll-text data-i18n="t030">Notre savoir-faire</p>
-        <p class="expertise__text" data-scroll-read data-i18n="t031">Dans notre atelier de Schaerbeek, nous remettons à neuf carrosseries et peintures et assurons la mécanique de toutes les marques. Un devis gratuit sous 24&nbsp;h, un prix annoncé qui ne bouge pas et deux ans de garantie sur nos réparations.</p>
+        <p class="label" data-scroll-text>Notre savoir-faire</p>
+        <p class="expertise__text" data-scroll-read>Dans notre atelier du 95 avenue de la Liberté, nous réparons la carrosserie, la peinture et le pare-brise des voitures, des utilitaires et des motos. L’expert de votre assurance passe directement à l’atelier, et nous suivons votre dossier jusqu’à la restitution du véhicule.</p>
       </div>
       <div class="cross-row"><i class="cross"></i><i class="cross"></i></div>
       <!-- BANDE DES MARQUES : défile en boucle de droite à gauche (CSS, ordinateur et mobile) -->
@@ -202,81 +192,81 @@
         <div class="brands__track"></div>
       </div>
       <div class="capabilities">
-        <p class="label" data-scroll-text data-i18n="t032">Nos services</p>
+        <p class="label" data-scroll-text>Nos services · avant / après réels</p>
         <div class="capabilities__grid">
           <article class="cap-card">
             <div class="ba" tabindex="0" role="slider" aria-label="Comparer avant et après" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-              <img class="ba__before" src="/media/ba1-avant.webp" width="1200" height="896" alt="Berline grise avec l’aile avant enfoncée et le pare-chocs rayé" loading="lazy" />
-              <img class="ba__after" src="/media/ba1-apres.webp" width="1200" height="896" alt="La même berline après débosselage : aile et pare-chocs remis à neuf" loading="lazy" />
-              <span class="ba__tag ba__tag--before" data-i18n="ba-before">Avant</span>
-              <span class="ba__tag ba__tag--after" data-i18n="ba-after">Après</span>
+              <img class="ba__before" src="/media/ba1-avant.webp" width="900" height="1200" alt="Mercedes Vito gris, porte latérale enfoncée" loading="lazy" />
+              <img class="ba__after" src="/media/ba1-apres.webp" width="900" height="1200" alt="Le même Vito après réparation, porte latérale redressée et repeinte" loading="lazy" />
+              <span class="ba__tag ba__tag--before">Avant</span>
+              <span class="ba__tag ba__tag--after">Après</span>
               <span class="ba__handle" aria-hidden="true"><span class="ba__knob"></span></span>
-              <span class="ba__hint" aria-hidden="true" data-i18n="ba-hint">Glissez</span>
+              <span class="ba__hint" aria-hidden="true">Glissez</span>
             </div>
             <div class="cap-card__body">
               <svg class="cap-card__icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
               <g class="spin"><path d="M24 4v40M4 24h40M9.9 9.9l28.2 28.2M38.1 9.9 9.9 38.1M16.3 5.5l15.4 37M31.7 5.5l-15.4 37M5.5 16.3l37 15.4M5.5 31.7l37-15.4" /></g>
               <circle cx="24" cy="24" r="5" /><circle cx="24" cy="24" r="10" stroke-dasharray="2 2" />
             </svg>
-              <h3 class="cap-card__title" data-scroll-text data-i18n="t033">Débosselage &amp; tôlerie</h3>
-              <p class="cap-card__text" data-i18n="t034">Chocs et accrochages&nbsp;: redressage, masticage, remplacement d'ailes et de pare-chocs.</p>
+              <h3 class="cap-card__title" data-scroll-text>Tôlerie &amp; débosselage</h3>
+              <p class="cap-card__text">Portière enfoncée, flanc froissé&nbsp;: débosselage, redressage et masticage, avant la mise en peinture.</p>
             </div>
           </article>
           <article class="cap-card">
             <div class="ba" tabindex="0" role="slider" aria-label="Comparer avant et après" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-              <img class="ba__before" src="/media/ba2-avant.webp" width="1200" height="896" alt="Capot rouge à la peinture écaillée dans la cabine" loading="lazy" />
-              <img class="ba__after" src="/media/ba2-apres.webp" width="1200" height="896" alt="Le même capot repeint en cabine, vernis brillant" loading="lazy" />
-              <span class="ba__tag ba__tag--before" data-i18n="ba-before">Avant</span>
-              <span class="ba__tag ba__tag--after" data-i18n="ba-after">Après</span>
+              <img class="ba__before" src="/media/ba2-avant.webp" width="900" height="1200" alt="Citadine rouge, portières et bas de caisse enfoncés" loading="lazy" />
+              <img class="ba__after" src="/media/ba2-apres.webp" width="900" height="1200" alt="La même citadine repeinte dans la cabine de l’atelier" loading="lazy" />
+              <span class="ba__tag ba__tag--before">Avant</span>
+              <span class="ba__tag ba__tag--after">Après</span>
               <span class="ba__handle" aria-hidden="true"><span class="ba__knob"></span></span>
-              <span class="ba__hint" aria-hidden="true" data-i18n="ba-hint">Glissez</span>
+              <span class="ba__hint" aria-hidden="true">Glissez</span>
             </div>
             <div class="cap-card__body">
               <svg class="cap-card__icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
               <g class="spin"><ellipse cx="24" cy="24" rx="20" ry="8" /><ellipse cx="24" cy="24" rx="20" ry="8" transform="rotate(60 24 24)" /><ellipse cx="24" cy="24" rx="20" ry="8" transform="rotate(120 24 24)" /></g>
               <circle cx="24" cy="24" r="3" fill="currentColor" />
             </svg>
-              <h3 class="cap-card__title" data-scroll-text data-i18n="t035">Peinture en cabine</h3>
-              <p class="cap-card__text" data-i18n="t036">Retouche partielle ou peinture complète, dans notre propre cabine de peinture.</p>
+              <h3 class="cap-card__title" data-scroll-text>Peinture en cabine</h3>
+              <p class="cap-card__text">Un élément ou le véhicule entier, peint dans notre propre cabine de peinture et de séchage.</p>
             </div>
           </article>
           <article class="cap-card">
             <div class="ba" tabindex="0" role="slider" aria-label="Comparer avant et après" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-              <img class="ba__before" src="/media/ba3-avant.webp" width="1200" height="896" alt="Phare jauni et jante encrassée" loading="lazy" />
-              <img class="ba__after" src="/media/ba3-apres.webp" width="1200" height="896" alt="Phare rénové et jante nettoyée, polie" loading="lazy" />
-              <span class="ba__tag ba__tag--before" data-i18n="ba-before">Avant</span>
-              <span class="ba__tag ba__tag--after" data-i18n="ba-after">Après</span>
+              <img class="ba__before" src="/media/ba3-avant.webp" width="900" height="1200" alt="Renault Master blanc, portes arrière enfoncées" loading="lazy" />
+              <img class="ba__after" src="/media/ba3-apres.webp" width="900" height="1200" alt="Le même Renault Master, portes arrière réparées" loading="lazy" />
+              <span class="ba__tag ba__tag--before">Avant</span>
+              <span class="ba__tag ba__tag--after">Après</span>
               <span class="ba__handle" aria-hidden="true"><span class="ba__knob"></span></span>
-              <span class="ba__hint" aria-hidden="true" data-i18n="ba-hint">Glissez</span>
+              <span class="ba__hint" aria-hidden="true">Glissez</span>
+            </div>
+            <div class="cap-card__body">
+              <svg class="cap-card__icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
+              <g class="spin"><path d="M8 16l12-8h20v24l-12 8H8z" /><path d="M8 16h20v24M28 16l12-8" /><path d="M14.7 16v24M21.3 16v24M8 24h20M8 32h20M14.7 16l12-8M21.3 16l12-8M28 24l12-8M28 32l12-8M32 13.3v24M36 10.7v24" stroke-width=".6" /></g>
+            </svg>
+              <h3 class="cap-card__title" data-scroll-text>Utilitaires &amp; fourgons</h3>
+              <p class="cap-card__text">Véhicules de société et fourgons&nbsp;: portes arrière, flancs, pare-chocs, remis en état pour reprendre la route.</p>
+            </div>
+          </article>
+          <article class="cap-card">
+            <div class="ba" tabindex="0" role="slider" aria-label="Comparer avant et après" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <img class="ba__before" src="/media/ba4-avant.webp" width="900" height="1200" alt="Aile avant grise creusée et rayée" loading="lazy" />
+              <img class="ba__after" src="/media/ba4-apres.webp" width="900" height="1200" alt="La même aile avant après réparation et peinture" loading="lazy" />
+              <span class="ba__tag ba__tag--before">Avant</span>
+              <span class="ba__tag ba__tag--after">Après</span>
+              <span class="ba__handle" aria-hidden="true"><span class="ba__knob"></span></span>
+              <span class="ba__hint" aria-hidden="true">Glissez</span>
             </div>
             <div class="cap-card__body">
               <svg class="cap-card__icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
               <g class="spin"><circle cx="24" cy="24" r="19" /><circle cx="24" cy="24" r="13" /><path d="M24 11v26M11 24h26M14.8 14.8l18.4 18.4M33.2 14.8 14.8 33.2" stroke-width=".7" /></g>
               <circle cx="24" cy="24" r="3" />
             </svg>
-              <h3 class="cap-card__title" data-scroll-text data-i18n="t037">Polissage &amp; jantes</h3>
-              <p class="cap-card__text" data-i18n="t038">Rayures, lustrage, smart repair, jantes et rénovation des phares jaunis.</p>
-            </div>
-          </article>
-          <article class="cap-card">
-            <div class="ba" tabindex="0" role="slider" aria-label="Comparer avant et après" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-              <img class="ba__before" src="/media/ba4-avant.webp" width="1200" height="896" alt="Disque de frein rouillé et étrier terni" loading="lazy" />
-              <img class="ba__after" src="/media/ba4-apres.webp" width="1200" height="896" alt="Disque de frein neuf et étrier repeint" loading="lazy" />
-              <span class="ba__tag ba__tag--before" data-i18n="ba-before">Avant</span>
-              <span class="ba__tag ba__tag--after" data-i18n="ba-after">Après</span>
-              <span class="ba__handle" aria-hidden="true"><span class="ba__knob"></span></span>
-              <span class="ba__hint" aria-hidden="true" data-i18n="ba-hint">Glissez</span>
-            </div>
-            <div class="cap-card__body">
-              <svg class="cap-card__icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
-              <g class="spin"><path d="M8 16l12-8h20v24l-12 8H8z" /><path d="M8 16h20v24M28 16l12-8" /><path d="M14.7 16v24M21.3 16v24M8 24h20M8 32h20M14.7 16l12-8M21.3 16l12-8M28 24l12-8M28 32l12-8M32 13.3v24M36 10.7v24" stroke-width=".6" /></g>
-            </svg>
-              <h3 class="cap-card__title" data-scroll-text data-i18n="t039">Mécanique toutes marques</h3>
-              <p class="cap-card__text" data-i18n="t040">Vidange, freins, embrayage, distribution, batterie, FAP et vanne EGR.</p>
+              <h3 class="cap-card__title" data-scroll-text>Ailes &amp; pare-chocs</h3>
+              <p class="cap-card__text">Aile rayée ou enfoncée, pare-chocs fendu&nbsp;: réparation ou remplacement de l’élément, puis peinture.</p>
             </div>
           </article>
         </div>
-        <div class="capabilities__actions"><a class="outline-btn" href="#prestations" data-i18n="t041">Voir les 51 prestations <span>↗</span></a><a class="outline-btn" href="#atelier" data-i18n="t042">Découvrir l'atelier <span>↗</span></a></div>
+        <div class="capabilities__actions"><a class="outline-btn" href="#prestations">Voir toutes les prestations <span>↗</span></a><a class="outline-btn" href="#realisations">Voir les réalisations <span>↗</span></a></div>
       </div>
       <div class="cross-row"><i class="cross"></i><i class="cross"></i></div>
     </section>
@@ -284,66 +274,65 @@
     <!-- BANDEAU CINÉTIQUE : suit la vitesse et le sens du défilement -->
     <section class="kinetic" aria-label="Nos engagements">
       <div class="kinetic__row" data-dir="1">
-        <div class="kinetic__track"><span data-i18n="t043">Devis gratuit en 24&nbsp;h</span><i>✦</i><span class="is-outline" data-i18n="t028">Garantie 2 ans</span><i>✦</i><span data-i18n="t044">Prix fixe</span><i>✦</i><span class="is-outline" data-i18n="t045">Toutes marques</span><i>✦</i></div>
+        <div class="kinetic__track"><span>Devis gratuit</span><i>✦</i><span class="is-outline">Visite de l’expert à l’atelier</span><i>✦</i><span>Gestion de sinistre</span><i>✦</i><span class="is-outline">Prix affichés</span><i>✦</i></div>
       </div>
       <div class="kinetic__row" data-dir="-1">
-        <div class="kinetic__track"><span class="is-outline" data-i18n="t046">Carrosserie</span><i>✦</i><span data-i18n="t047">Peinture</span><i>✦</i><span class="is-outline" data-i18n="t048">Polissage</span><i>✦</i><span data-i18n="t049">Mécanique</span><i>✦</i><span class="is-outline">Français · Nederlands</span><i>✦</i></div>
+        <div class="kinetic__track"><span class="is-outline">Carrosserie</span><i>✦</i><span>Peinture</span><i>✦</i><span class="is-outline">Pare-brise</span><i>✦</i><span>Utilitaires</span><i>✦</i><span class="is-outline">Motos</span><i>✦</i></div>
       </div>
     </section>
 
     <!-- PANNEAUX EMPILÉS -->
     <section class="panels" id="atelier">
       <div class="panels__layer"><div class="panels__media">
-        <figure class="panels__img is-first"><img src="/media/panel-1.webp" width="1376" height="768" alt="Aile et phare avant d’une berline après un choc" /><figcaption class="panels__cap" data-i18n="t050"><span>01</span>Carrosserie accidentée</figcaption></figure>
-        <figure class="panels__img"><img src="/media/panel-2.webp" width="1376" height="768" alt="Peintre en combinaison appliquant la teinte en cabine" loading="lazy" /><figcaption class="panels__cap" data-i18n="t051"><span>02</span>Peinture en cabine</figcaption></figure>
-        <figure class="panels__img"><img src="/media/panel-3.webp" width="1376" height="768" alt="Mécaniciens au travail sur un moteur dans l’atelier" loading="lazy" /><figcaption class="panels__cap" data-i18n="t052"><span>03</span>Mécanique toutes marques</figcaption></figure>
-        <figure class="panels__img"><img src="/media/panel-4.webp" width="1376" height="768" alt="Tablette affichant « Devis gratuit » avec une étiquette « Prix fixe »" loading="lazy" /><figcaption class="panels__cap" data-i18n="t053"><span>04</span>Devis gratuit, prix fixe</figcaption></figure>
+        <figure class="panels__img is-first"><img src="/media/panel-1.webp" width="1535" height="920" alt="Aile avant et optique froissées sur une Peugeot grise, à l’atelier" /><figcaption class="panels__cap"><span>01</span>Carrosserie accidentée</figcaption></figure>
+        <figure class="panels__img"><img src="/media/panel-2.webp" width="1600" height="1200" alt="La cabine de peinture et de séchage de l’atelier, un véhicule masqué avant peinture" loading="lazy" /><figcaption class="panels__cap"><span>02</span>Peinture en cabine</figcaption></figure>
+        <figure class="panels__img"><img src="/media/panel-3.webp" width="1600" height="896" alt="Fiat 500 au pare-brise éclaté et au capot enfoncé, avant réparation" loading="lazy" /><figcaption class="panels__cap"><span>03</span>Pare-brise</figcaption></figure>
+        <figure class="panels__img"><img src="/media/panel-4.webp" width="1512" height="1060" alt="Entrée de l’atelier et enseigne « Carrosserie, tôlerie-peinture, visite expert »" loading="lazy" /><figcaption class="panels__cap"><span>04</span>Visite de l’expert</figcaption></figure>
       </div></div>
       <div class="panels__col container">
         <article class="panel-card">
           <span class="panel-card__num">01</span>
-          <h2 class="panel-card__title" data-flip data-i18n="t054">Carrosserie<br /><span class="accent">accidentée</span></h2>
-          <p class="panel-card__text" data-i18n="t055">Après un accrochage ou un choc plus sérieux, nous redressons, mastiquons ou remplaçons les éléments abîmés pour rendre au véhicule sa ligne d'origine.</p>
+          <h2 class="panel-card__title" data-flip>Carrosserie<br /><span class="accent">accidentée</span></h2>
+          <p class="panel-card__text">Accrochage ou choc important&nbsp;: les dégâts sont évalués et un devis détaillé est établi avant de commencer, puis les éléments touchés sont redressés ou remplacés.</p>
           <ul class="panel-card__list">
-            <li data-i18n="t056">Redressage et masticage</li>
-            <li data-i18n="t057">Remplacement d'ailes, de capots et de pare-chocs</li>
-            <li data-i18n="t058">Pièces d'origine</li>
+            <li>Débosselage, redressage, masticage</li>
+            <li>Ailes, portières, capots et pare-chocs</li>
+            <li>Feux avant et arrière</li>
           </ul>
         </article>
         <article class="panel-card">
           <span class="panel-card__num">02</span>
-          <h2 class="panel-card__title" data-flip data-i18n="t059">Peinture<br /><span class="accent">en cabine</span></h2>
-          <p class="panel-card__text" data-i18n="t060">L'atelier dispose de sa propre cabine de peinture&nbsp;: raccord sur une rayure, un élément repeint ou le véhicule entier.</p>
+          <h2 class="panel-card__title" data-flip>Peinture<br /><span class="accent">en cabine</span></h2>
+          <p class="panel-card__text">L’atelier a sa propre cabine de peinture et de séchage&nbsp;: un raccord, un élément ou le véhicule entier, pour une teinte identique au reste de la carrosserie.</p>
           <ul class="panel-card__list">
-            <li data-i18n="t061">Peinture partielle ou complète</li>
-            <li data-i18n="t062">Raccords de teinte sur rayures</li>
-            <li data-i18n="t063">Polissage professionnel de finition</li>
+            <li>Un élément sans bosse&nbsp;: 200&nbsp;€</li>
+            <li>Un élément avec bosse légère&nbsp;: 300&nbsp;€</li>
+            <li>Cabine de peinture et de séchage</li>
           </ul>
         </article>
         <article class="panel-card">
           <span class="panel-card__num">03</span>
-          <h2 class="panel-card__title" data-flip data-i18n="t064">Mécanique<br /><span class="accent">toutes marques</span></h2>
-          <p class="panel-card__text" data-i18n="t065">Entretien et réparations mécaniques au même endroit que la carrosserie, sur plus de quarante marques.</p>
+          <h2 class="panel-card__title" data-flip>Pare-brise<br /><span class="accent">remplacé</span></h2>
+          <p class="panel-card__text">Pare-brise fissuré ou éclaté&nbsp;: il est remplacé à l’atelier. S’il est couvert par la garantie bris de glace de votre contrat, votre assureur prend le remplacement en charge, franchise éventuelle déduite.</p>
           <ul class="panel-card__list">
-            <li data-i18n="t066">Entretien, vidange et freinage</li>
-            <li data-i18n="t067">Embrayage, distribution et suspension</li>
-            <li data-i18n="t068">Climatisation, éclairage et échappement</li>
+            <li>Remplacement du pare-brise</li>
+            <li>Garantie bris de glace, selon votre contrat</li>
+            <li>Démarches avec votre assureur</li>
           </ul>
         </article>
         <article class="panel-card">
           <span class="panel-card__num">04</span>
-          <h2 class="panel-card__title" data-flip data-i18n="t069">Devis gratuit,<br /><span class="accent">prix fixe</span></h2>
-          <p class="panel-card__text" data-i18n="t070">Envoyez quelques photos&nbsp;: vous recevez un devis gratuit et sans engagement sous 24&nbsp;h. Le prix annoncé est le prix payé.</p>
+          <h2 class="panel-card__title" data-flip>Sinistre<br /><span class="accent">&amp; expert</span></h2>
+          <p class="panel-card__text">L’expert de votre assurance vient examiner le véhicule directement à l’atelier. Nous suivons le dossier avec vous jusqu’à la restitution du véhicule.</p>
           <ul class="panel-card__list">
-            <li data-i18n="t071">Devis sous 24 h, sur photos</li>
-            <li data-i18n="t072">Prix convenu respecté</li>
-            <li data-i18n="t073">Garantie de 2 ans sur les réparations</li>
+            <li>Visite de l’expert à l’atelier</li>
+            <li>Libre choix du réparateur (loi Hamon)</li>
+            <li>Suivi du dossier jusqu’à la restitution</li>
           </ul>
         </article>
         <div class="panels__hold" aria-hidden="true"></div>
       </div>
     </section>
-
     <!-- CATALOGUE : carrousel 3D piloté par le défilement -->
     <section class="presta" id="prestations">
       <div class="presta__stage">
@@ -351,47 +340,74 @@
           <div class="presta__deck"></div>
         </div>
         <div class="presta__info container">
-          <p class="label" data-scroll-text data-i18n="t081">Catalogue de l’atelier</p>
-          <h2 class="presta__title" data-flip data-i18n="t082">Toutes nos<br /><span class="accent" data-i18n="t083">prestations</span></h2>
-          <p class="presta__stat"><span class="presta__num" data-presta-count data-to="51">0</span> <span data-i18n="t083">prestations</span> · <b data-presta-domains>13</b> <span data-i18n="t084">domaines · toutes marques</span></p>
+          <p class="label" data-scroll-text>Catalogue de l’atelier</p>
+          <h2 class="presta__title" data-flip>Toutes nos<br /><span class="accent">prestations</span></h2>
+          <p class="presta__stat"><span class="presta__num" data-presta-count data-to="0">0</span> <span>prestations</span> · <b data-presta-domains>5</b> <span>domaines · toutes marques</span></p>
           <div class="presta__active" aria-live="polite">
-            <p class="presta__index"><span class="presta__current">01</span><span class="presta__total"> / 13</span></p>
-            <p class="presta__name" data-i18n="t046">Carrosserie</p>
-            <p class="presta__active-count">4 prestations</p>
+            <p class="presta__index"><span class="presta__current">01</span><span class="presta__total"> / 05</span></p>
+            <p class="presta__name">Carrosserie</p>
+            <p class="presta__active-count"></p>
           </div>
-          <a class="faq-cta presta__call" href="tel:+32477777036"><span data-i18n="t085">Une intervention absente&nbsp;? Appelez l’atelier</span> <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="faq-cta presta__call" href="tel:+33777007176"><span>Une intervention absente&nbsp;? Appelez l’atelier</span> <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="presta__rail container">
-          <span class="presta__hint label" data-i18n="t023">Faites défiler</span>
+          <span class="presta__hint label">Faites défiler</span>
           <div class="presta__track"><i class="presta__fill"></i><div class="presta__ticks"></div></div>
         </div>
+      </div>
+    </section>
+
+    <!-- RÉALISATIONS : avant / après réels, défilement horizontal piloté par le scroll vertical -->
+    <section class="reviews realis" id="realisations">
+      <div class="reviews__stage">
+        <div class="reviews__head container">
+          <div class="reviews__score"><span class="reviews__num" data-to="8">00</span><span class="reviews__of">réalisations</span></div>
+          <div class="reviews__meta">
+            <p class="label">Avant / après</p>
+            <p class="reviews__lead" data-scroll-text>Des réparations sorties de l’atelier, photographiées par l’équipe avant et après.</p>
+            <a class="outline-btn outline-btn--light" href="#devis">Faire chiffrer ma réparation <span>↗</span></a>
+          </div>
+        </div>
+        <div class="reviews__rail">
+          <div class="reviews__track">
+            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><img class="realis__img" src="/media/real-01.webp" width="1312" height="1000" alt="Avant et après : Renault Master, portes arrière enfoncées puis réparées" loading="lazy" /><blockquote>Portes arrière enfoncées, remises en forme et repeintes.</blockquote><figcaption><span class="review__avatar">01</span><span class="review__who"><b>Renault Master</b><small>Utilitaire · portes arrière</small></span></figcaption></div></figure>
+            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><img class="realis__img" src="/media/real-02.webp" width="1943" height="1000" alt="Avant et après : Fiat 500 au capot enfoncé et au pare-brise éclaté, puis remise à neuf" loading="lazy" /><blockquote>Capot enfoncé et pare-brise éclaté&nbsp;: face avant remise à neuf.</blockquote><figcaption><span class="review__avatar">02</span><span class="review__who"><b>Fiat 500</b><small>Face avant · pare-brise</small></span></figcaption></div></figure>
+            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><img class="realis__img" src="/media/real-03.webp" width="1125" height="1000" alt="Avant et après : citadine rouge, portières enfoncées puis repeintes en cabine" loading="lazy" /><blockquote>Portières et bas de caisse enfoncés, redressés puis repeints en cabine.</blockquote><figcaption><span class="review__avatar">03</span><span class="review__who"><b>Citadine rouge</b><small>Portières · bas de caisse</small></span></figcaption></div></figure>
+            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><img class="realis__img" src="/media/real-04.webp" width="2000" height="1000" alt="Avant et après : aile avant grise creusée et rayée, puis réparée" loading="lazy" /><blockquote>Aile avant creusée et rayée, reprise puis repeinte.</blockquote><figcaption><span class="review__avatar">04</span><span class="review__who"><b>Aile avant</b><small>Choc et rayures</small></span></figcaption></div></figure>
+            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><img class="realis__img" src="/media/real-05.webp" width="1196" height="1000" alt="Avant et après : BMW Série 3 bleue, arrière accidenté puis réparé devant la cabine de peinture" loading="lazy" /><blockquote>Arrière accidenté, pare-chocs arraché&nbsp;: réparé puis passé en cabine.</blockquote><figcaption><span class="review__avatar">05</span><span class="review__who"><b>BMW Série 3</b><small>Arrière · pare-chocs</small></span></figcaption></div></figure>
+            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><img class="realis__img" src="/media/real-06.webp" width="1291" height="1000" alt="Avant et après : Mercedes Vito, porte latérale enfoncée puis réparée" loading="lazy" /><blockquote>Porte coulissante enfoncée, débosselée et repeinte.</blockquote><figcaption><span class="review__avatar">06</span><span class="review__who"><b>Mercedes Vito</b><small>Utilitaire · porte latérale</small></span></figcaption></div></figure>
+            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><img class="realis__img" src="/media/real-07.webp" width="1333" height="1000" alt="Avant et après : Nissan Micra au flanc froissé, puis entièrement repris" loading="lazy" /><blockquote>Flanc froissé de l’aile arrière à l’aile avant, entièrement repris.</blockquote><figcaption><span class="review__avatar">07</span><span class="review__who"><b>Nissan Micra</b><small>Flanc complet</small></span></figcaption></div></figure>
+            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><img class="realis__img" src="/media/real-08.webp" width="1219" height="1000" alt="Avant et après : Peugeot grise, aile avant froissée puis remise en état" loading="lazy" /><blockquote>Aile avant froissée au-dessus de la roue, remise en état.</blockquote><figcaption><span class="review__avatar">08</span><span class="review__who"><b>Peugeot</b><small>Aile avant</small></span></figcaption></div></figure>
+          </div>
+        </div>
+        <p class="reviews__note container">Photos de l’atelier. Plaques d’immatriculation masquées.</p>
       </div>
     </section>
 
     <!-- AVIS GOOGLE : bande en boucle -->
     <section class="greviews" id="avis-google">
       <div class="greviews__inner container">
-        <h2 class="greviews__title" data-flip data-i18n="t086">Ce que nos clients<br /><span class="accent">disent sur Google</span></h2>
+        <h2 class="greviews__title" data-flip>Ce que nos clients<br /><span class="accent">disent sur Google</span></h2>
         <div class="greviews__strip">
           <div class="greviews__summary">
-            <p class="greviews__score" data-i18n="t013">3,9</p>
-            <div class="greviews__stars" role="img" aria-label="Note de 3,9 sur 5">
+            <p class="greviews__score">5,0</p>
+            <div class="greviews__stars" role="img" aria-label="Note de 5 sur 5">
               <span class="greviews__stars-bg">★★★★★</span>
-              <span class="greviews__stars-fill" style="width: 78%">★★★★★</span>
+              <span class="greviews__stars-fill" style="width: 100%">★★★★★</span>
             </div>
-            <p class="greviews__count" data-i18n="t014">28 avis</p>
-            <p class="greviews__source"><span class="greviews__g"></span><span data-i18n="t087">sur Google</span></p>
-            <a class="greviews__all" href="https://share.google/LqZYZ5JYPHfEs9HVP" target="_blank" rel="noopener" data-i18n="t088">Voir tous les avis <span aria-hidden="true">↗</span></a>
+            <p class="greviews__count">291 avis</p>
+            <p class="greviews__source"><span class="greviews__g"></span><span>sur Google</span></p>
+            <a class="greviews__all" href="https://maps.app.goo.gl/KmsS6edu2QDk12WX9" target="_blank" rel="noopener">Voir les 291 avis <span aria-hidden="true">↗</span></a>
           </div>
           <div class="greviews__viewport" aria-label="Avis Google défilants">
             <div class="greviews__track"></div>
           </div>
         </div>
         <div class="greviews__nav">
-          <button type="button" class="greviews__arrow" data-greviews-prev aria-label="Avis précédent"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button type="button" class="greviews__arrow" data-greviews-next aria-label="Avis suivant"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="greviews__arrow" data-greviews-prev aria-label="Avis précédent"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 6 9 12l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="greviews__arrow" data-greviews-next aria-label="Avis suivant"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
-        <p class="greviews__note" data-i18n="t089">Avis cités tels quels, dans leur langue d’origine.</p>
+        <p class="greviews__note">Avis cités tels quels, dans leur langue d’origine&nbsp;; seuls les noms sont abrégés.</p>
       </div>
     </section>
 
@@ -399,7 +415,7 @@
     <section class="process" id="etapes" aria-label="Comment ça se passe">
       <div class="process__stage">
         <div class="process__head container">
-          <p class="label" data-i18n="t090">Comment ça se passe</p>
+          <p class="label">Comment ça se passe</p>
           <p class="label process__count"><span class="process__current">01</span> / 04</p>
         </div>
         <div class="process__body container">
@@ -407,40 +423,13 @@
             <div class="process__digits-track"><span>1</span><span>2</span><span>3</span><span>4</span></div>
           </div>
           <div class="process__steps">
-            <article class="step"><h3 class="step__title" data-i18n="t091">Vous envoyez<br /><span class="accent">des photos</span></h3><p class="step__text" data-i18n="t092">Quelques clichés des dégâts suffisent pour un premier chiffrage, sans vous déplacer.</p><a class="step__cta" href="mailto:carrosserievanpraet@gmail.com?subject=Photos%20pour%20un%20devis"><span class="step__cta-icon"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M4 8h3l2-2.5h6L17 8h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><span class="step__cta-label" data-i18n="t099">Envoyer mes photos</span><svg class="step__cta-arrow" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
-            <article class="step"><h3 class="step__title" data-i18n="t093">Devis gratuit<br /><span class="accent">sous 24 h</span></h3><p class="step__text" data-i18n="t094">Un devis clair et sans engagement. Le prix annoncé est celui que vous payez.</p><a class="step__cta" href="#devis"><span class="step__cta-icon"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 12h5M10 15.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="step__cta-label" data-i18n="t100">Remplir le formulaire</span><svg class="step__cta-arrow" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
-            <article class="step"><h3 class="step__title" data-i18n="t095">Rendez-vous<br /><span class="accent">à l'atelier</span></h3><p class="step__text" data-i18n="t096">Vous déposez le véhicule rue Navez à la date qui vous arrange, en semaine ou le samedi matin.</p><a class="step__cta" href="https://maps.app.goo.gl/2hibFTy7Ff3hPFmB8" target="_blank" rel="noopener"><span class="step__cta-icon"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><span class="step__cta-label" data-i18n="t101">Itinéraire vers l’atelier</span><svg class="step__cta-arrow" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
-            <article class="step"><h3 class="step__title" data-i18n="t097">Rendu,<br /><span class="accent">garanti 2 ans</span></h3><p class="step__text" data-i18n="t098">Le véhicule vous est rendu réparé, avec deux ans de garantie sur le travail effectué.</p><a class="step__cta" href="#avis-google"><span class="step__cta-icon"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z" fill="currentColor"/></svg></span><span class="step__cta-label" data-i18n="t102">Lire les avis clients</span><svg class="step__cta-arrow" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+            <article class="step"><h3 class="step__title">Vous envoyez<br /><span class="accent">des photos</span></h3><p class="step__text">Quelques photos des dégâts, de face et de biais&nbsp;: c’est assez pour un premier chiffrage, sans vous déplacer.</p><a class="step__cta" href="mailto:clemenceau92@sfr.fr?subject=Photos%20pour%20un%20devis"><span class="step__cta-icon"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M4 8h3l2-2.5h6L17 8h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><span class="step__cta-label">Envoyer mes photos</span><svg class="step__cta-arrow" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+            <article class="step"><h3 class="step__title">Devis gratuit<br /><span class="accent">et détaillé</span></h3><p class="step__text">Le devis détaille chaque intervention avant le moindre travail. En cas de sinistre, vous le déclarez à votre assureur.</p><a class="step__cta" href="#devis"><span class="step__cta-icon"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 12h5M10 15.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="step__cta-label">Remplir le formulaire</span><svg class="step__cta-arrow" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+            <article class="step"><h3 class="step__title">L’expert passe<br /><span class="accent">à l’atelier</span></h3><p class="step__text">Si l’assurance intervient, l’expert examine le véhicule directement chez nous, au 95 avenue de la Liberté.</p><a class="step__cta" href="https://maps.app.goo.gl/KmsS6edu2QDk12WX9" target="_blank" rel="noopener"><span class="step__cta-icon"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><span class="step__cta-label">Itinéraire vers l’atelier</span><svg class="step__cta-arrow" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
+            <article class="step"><h3 class="step__title">Réparé<br /><span class="accent">et rendu</span></h3><p class="step__text">La réparation se fait dans notre atelier, puis le véhicule vous est rendu. «&nbsp;Du devis à la restitution, photos à l’appui&nbsp;», écrit une cliente sur Google.</p><a class="step__cta" href="#avis-google"><span class="step__cta-icon"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="m12 17.3-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z" fill="currentColor"/></svg></span><span class="step__cta-label">Lire les avis clients</span><svg class="step__cta-arrow" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article>
           </div>
         </div>
         <div class="process__bar container"><i class="process__fill"></i></div>
-      </div>
-    </section>
-
-    <!-- AVIS : défilement horizontal piloté par le scroll vertical -->
-    <section class="reviews" id="avis">
-      <div class="reviews__stage">
-        <div class="reviews__head container">
-          <div class="reviews__score"><span class="reviews__num" data-to="9.5">0,0</span><span class="reviews__of">/10</span></div>
-          <div class="reviews__meta">
-            <p class="label" data-i18n="t103">Avis clients</p>
-            <p class="reviews__lead" data-scroll-text data-i18n="t104">Note moyenne sur 34 avis déposés sur Fixico.</p>
-            <a class="outline-btn outline-btn--light" href="https://fixico.be/fr/villes/schaerbeek/garage-van-praet" target="_blank" rel="noopener" data-i18n="t105">Lire les avis <span>↗</span></a>
-          </div>
-        </div>
-        <div class="reviews__rail">
-          <div class="reviews__track">
-            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><blockquote data-i18n="t106">Pare-chocs arrière remplacé pour environ la moitié du prix demandé ailleurs.</blockquote><figcaption><span class="review__avatar">A</span><span class="review__who"><b data-i18n="t114">Client A.</b><small>Audi · 2023</small></span></figcaption></div></figure>
-            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><blockquote data-i18n="t107">Tenu informé dès qu'un imprévu est apparu, et un résultat final impeccable.</blockquote><figcaption><span class="review__avatar">T</span><span class="review__who"><b data-i18n="t115">Client T.</b><small>Toyota · 2023</small></span></figcaption></div></figure>
-            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><blockquote data-i18n="t108">Aile remplacée et repeinte&nbsp;: un travail excellent.</blockquote><figcaption><span class="review__avatar">P</span><span class="review__who"><b data-i18n="t116">Client P.</b><small>Peugeot · 2023</small></span></figcaption></div></figure>
-            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><blockquote data-i18n="t109">Rayure repeinte avec soin, pour un prix correct.</blockquote><figcaption><span class="review__avatar">V</span><span class="review__who"><b data-i18n="t117">Client V.</b><small>Volvo · 2022</small></span></figcaption></div></figure>
-            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><blockquote data-i18n="t110">Travail terminé avant la date prévue, au prix convenu.</blockquote><figcaption><span class="review__avatar">B</span><span class="review__who"><b data-i18n="t118">Client B.</b><small>BMW · 2020</small></span></figcaption></div></figure>
-            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><blockquote data-i18n="t111">Pare-chocs et capot rendus plus tôt que prévu.</blockquote><figcaption><span class="review__avatar">V</span><span class="review__who"><b data-i18n="t117">Client V.</b><small>Volkswagen · 2020</small></span></figcaption></div></figure>
-            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><blockquote data-i18n="t112">Réparation de carrosserie bouclée en deux jours.</blockquote><figcaption><span class="review__avatar">C</span><span class="review__who"><b data-i18n="t119">Client C.</b><small>Citroën · 2019</small></span></figcaption></div></figure>
-            <figure class="review"><div class="review__card"><i class="review__glow" aria-hidden="true"></i><blockquote data-i18n="t113">Pièces d'origine et un travail sans défaut, au prix du devis.</blockquote><figcaption><span class="review__avatar">M</span><span class="review__who"><b data-i18n="t120">Client M.</b><small>Mercedes-Benz · 2019</small></span></figcaption></div></figure>
-          </div>
-        </div>
-        <p class="reviews__note container" data-i18n="t121">Avis reformulés d'après les évaluations publiées sur Fixico.</p>
       </div>
     </section>
 
@@ -450,9 +439,9 @@
         <header class="faq__header">
           <div class="faq__intro">
             <span class="faq__pill" data-fade="0.1"><i class="faq__dot"></i>FAQ</span>
-            <h2 class="faq__title" data-fade="0.1" data-i18n="t122">Les réponses aux questions<br class="faq__br" /> <span class="accent">qu’on nous pose vraiment.</span></h2>
+            <h2 class="faq__title" data-fade="0.1">Les réponses aux questions<br class="faq__br" /> <span class="accent">qu’on nous pose vraiment.</span></h2>
           </div>
-          <p class="faq__lead" data-fade="0.2" data-i18n="t123">Prix, délais, garantie, pièces, assurance&nbsp;: ce que les clients veulent savoir avant de confier leur voiture à l’atelier de Schaerbeek.</p>
+          <p class="faq__lead" data-fade="0.2">Prix, assurance, expert, pare-brise&nbsp;: ce que les clients veulent savoir avant de confier leur véhicule à l’atelier de Nanterre.</p>
         </header>
         <div class="faq__grid">
           <div class="faq__side">
@@ -461,9 +450,9 @@
             </div>
             <div class="faq__help spot"><span class="spot-ring" aria-hidden="true"></span>
               <div class="faq__help-card spot"><span class="spot-ring" aria-hidden="true"></span>
-                <h3 data-i18n="t124">Une autre question&nbsp;?</h3>
-                <p data-i18n="t125">Chaque véhicule est différent. Un appel suffit souvent pour savoir comment l’atelier peut vous aider.</p>
-                <a class="faq__help-link" href="tel:+32477777036" data-i18n="t126">Appeler le 0477 77 70 36 <span aria-hidden="true">→</span></a>
+                <h3>Une autre question&nbsp;?</h3>
+                <p>Chaque véhicule est différent. Un appel suffit souvent pour savoir comment l’atelier peut vous aider.</p>
+                <a class="faq__help-link" href="tel:+33777007176">Appeler le 07 77 00 71 76 <span aria-hidden="true">→</span></a>
               </div>
             </div>
           </div>
@@ -478,31 +467,31 @@
     <section class="quote container" id="devis">
       <div class="quote__box">
         <div class="quote__text">
-          <p class="label quote__label" data-i18n="t127">Demande de devis</p>
-          <h2 class="quote__title" data-zoom-title data-i18n="t128">Un devis en <span class="accent">24&nbsp;h</span>&nbsp;?</h2>
-          <p class="quote__sub" data-scroll-text data-i18n="t129">Envoyez vos photos, on s'occupe du reste. Gratuit et sans engagement.</p>
+          <p class="label quote__label">Demande de devis</p>
+          <h2 class="quote__title" data-zoom-title>Un devis <span class="accent">gratuit</span>&nbsp;?</h2>
+          <p class="quote__sub" data-scroll-text>Envoyez vos photos, l’atelier vous répond. Gratuit et sans engagement.</p>
           <ul class="quote__perks">
-            <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t130">Prise de rendez-vous facile</span></li>
-            <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t131">Garantie de prix fixe</span></li>
-            <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t132">Toujours 2 ans de garantie</span></li>
-            <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t133">Estimation gratuite et sans engagement</span></li>
+            <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Devis gratuit et détaillé</span></li>
+            <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Visite de l’expert à l’atelier</span></li>
+            <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Suivi de votre sinistre</span></li>
+            <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Noté 5,0 sur 5 par 291 clients</span></li>
           </ul>
-          <p class="quote__alt"><span data-i18n="t134">Vous préférez nous écrire directement&nbsp;?</span><br /><a href="mailto:carrosserievanpraet@gmail.com">carrosserievanpraet@gmail.com</a> · <a href="tel:+32477777036">0477 77 70 36</a></p>
+          <p class="quote__alt"><span>Vous préférez appeler&nbsp;?</span><br /><a href="tel:+33777007176">07 77 00 71 76</a> · <a href="tel:+33143330495">01 43 33 04 95</a></p>
         </div>
 
         <form class="qf" id="quote-form" novalidate>
           <div class="qf__head">
-            <p class="qf__title" data-i18n="t135">Saisissez ici les données de votre voiture</p>
+            <p class="qf__title">Saisissez ici les données de votre véhicule</p>
           </div>
           <div class="qf__body">
             <div class="qf__row">
-              <label class="qf__field"><span data-i18n="t136">Nom et prénom <b>*</b></span><input name="nom" type="text" autocomplete="name" required placeholder="Jean Dupont" /></label>
-              <label class="qf__field"><span data-i18n="t137">Téléphone <b>*</b></span><input name="telephone" type="tel" autocomplete="tel" required placeholder="0470 00 00 00" /></label>
+              <label class="qf__field"><span>Nom et prénom <b>*</b></span><input name="nom" type="text" autocomplete="name" required placeholder="Jean Dupont" /></label>
+              <label class="qf__field"><span>Téléphone <b>*</b></span><input name="telephone" type="tel" autocomplete="tel" required placeholder="06 00 00 00 00" /></label>
             </div>
-            <label class="qf__field"><span>E-mail</span><input name="email" type="email" autocomplete="email" placeholder="vous@exemple.be" /></label>
-            <label class="qf__field"><span data-i18n="t138">Marque <b>*</b></span>
+            <label class="qf__field"><span>E-mail</span><input name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr" /></label>
+            <label class="qf__field"><span>Marque <b>*</b></span>
               <span class="qf__select"><select name="marque" required>
-                  <option value="" selected disabled data-i18n="t143">Choisissez la marque</option>
+                  <option value="" selected disabled>Choisissez la marque</option>
                   <option>Alfa Romeo</option>
                   <option>Audi</option>
                   <option>BMW</option>
@@ -538,29 +527,30 @@
                   <option>Toyota</option>
                   <option>Volkswagen</option>
                   <option>Volvo</option>
-                  <option data-i18n="t144">Autre marque</option>
+                  <option>Autre marque</option>
                 </select><svg class="qf__chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </label>
             <div class="qf__row">
-              <label class="qf__field"><span data-i18n="t139">Modèle</span><input name="modele" type="text" placeholder="Saisissez le modèle" disabled data-needs-brand /></label>
-              <label class="qf__field"><span data-i18n="t140">Année de construction</span>
-                <span class="qf__select"><select name="annee" disabled data-needs-brand><option value="" selected data-i18n="t145">Choisissez l'année</option></select><svg class="qf__chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <label class="qf__field"><span>Modèle</span><input name="modele" type="text" placeholder="Saisissez le modèle" disabled data-needs-brand /></label>
+              <label class="qf__field"><span>Année de mise en circulation</span>
+                <span class="qf__select"><select name="annee" disabled data-needs-brand><option value="" selected>Choisissez l’année</option></select><svg class="qf__chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </label>
             </div>
-            <label class="qf__field"><span data-i18n="t141">Type d'intervention</span>
+            <label class="qf__field"><span>Type d’intervention</span>
               <span class="qf__select"><select name="intervention">
-                  <option value="" selected data-i18n="t146">Choisissez l'intervention</option>
-                  <option data-i18n="t147">Carrosserie (choc, bosse, rayure)</option>
-                  <option data-i18n="t035">Peinture en cabine</option>
-                  <option data-i18n="t148">Polissage, jantes, phares</option>
-                  <option data-i18n="t149">Mécanique / entretien</option>
-                  <option data-i18n="t150">Autre demande</option>
+                  <option value="" selected>Choisissez l’intervention</option>
+                  <option>Carrosserie (choc, bosse, rayure)</option>
+                  <option>Peinture</option>
+                  <option>Pare-brise</option>
+                  <option>Sinistre avec expertise</option>
+                  <option>Utilitaire ou moto</option>
+                  <option>Autre demande</option>
                 </select><svg class="qf__chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </label>
-            <label class="qf__field"><span data-i18n="t142">Votre message</span><textarea name="message" rows="3" placeholder="Décrivez les dégâts ou l'intervention souhaitée"></textarea></label>
-            <p class="qf__error" role="alert" hidden data-i18n="t151">Merci de remplir les champs obligatoires (*).</p>
-            <button class="qf__submit" type="submit" data-i18n="t152">Envoyer ma demande de devis</button>
-            <p class="qf__note" data-i18n="t153">L'envoi ouvre votre messagerie avec la demande pré-remplie à <b>carrosserievanpraet@gmail.com</b>. Pensez à joindre vos photos.</p>
+            <label class="qf__field"><span>Votre message</span><textarea name="message" rows="3" placeholder="Décrivez les dégâts ou l’intervention souhaitée"></textarea></label>
+            <p class="qf__error" role="alert" hidden>Merci de remplir les champs obligatoires (*).</p>
+            <button class="qf__submit" type="submit">Envoyer ma demande de devis</button>
+            <p class="qf__note">L’envoi ouvre votre messagerie avec la demande pré-remplie à <b>clemenceau92@sfr.fr</b>. Pensez à joindre vos photos.</p>
           </div>
         </form>
       </div>
@@ -571,102 +561,106 @@
     <!-- Bande d'appel à l'action -->
     <div class="footer__cta">
       <div class="footer__cta-text">
-        <p class="label" data-i18n="t154">Carrosserie · Peinture · Mécanique</p>
-        <h2 class="footer__cta-title" data-i18n="t155">Un choc, une rayure&nbsp;?<br /><span class="accent">Devis gratuit sous 24&nbsp;h.</span></h2>
+        <p class="label">Carrosserie · Peinture · Pare-brise</p>
+        <h2 class="footer__cta-title">Un choc, un pare-brise fissuré&nbsp;?<br /><span class="accent">Devis gratuit.</span></h2>
       </div>
       <div class="footer__cta-actions">
-        <a class="block-cta" href="tel:+32477777036"><span class="block-cta__arrow">↗</span><span class="block-cta__label" data-i18n="t156">Appeler l’atelier</span></a>
-        <a class="outline-btn" href="#devis" data-i18n="t157">Demander un devis <span>↗</span></a>
-        <a class="outline-btn" href="https://maps.app.goo.gl/2hibFTy7Ff3hPFmB8" target="_blank" rel="noopener" data-i18n="t158">Itinéraire <span>↗</span></a>
+        <a class="block-cta" href="tel:+33777007176"><span class="block-cta__arrow">↗</span><span class="block-cta__label">Appeler l’atelier</span></a>
+        <a class="outline-btn" href="#devis">Demander un devis <span>↗</span></a>
+        <a class="outline-btn" href="https://maps.app.goo.gl/KmsS6edu2QDk12WX9" target="_blank" rel="noopener">Itinéraire <span>↗</span></a>
       </div>
     </div>
 
     <div class="footer__main">
-      <div class="footer__mark" aria-hidden="true" data-footer-mark>Carrosserie<br />Van Praet</div>
+      <div class="footer__mark" aria-hidden="true" data-footer-mark>Clemenceau<br />92</div>
       <div class="footer__cols">
         <div class="footer__col footer__col--brand">
-          <a class="footer__logo-link" href="#top" aria-label="Van Praet Carrosserie — retour en haut de page"><img class="footer__logo" src="/media/logo-footer.webp" width="952" height="304" alt="" loading="lazy" /></a>
-          <p class="footer__pitch" data-i18n="t159">Carrosserie, peinture en cabine et mécanique toutes marques à Schaerbeek. Devis gratuit sous 24&nbsp;h, prix fixe et garantie 2&nbsp;ans.</p>
-          <p class="label footer__langs" data-i18n="t160">Accueil en français · Nederlands</p>
+          <a class="footer__logo-link" href="#top" aria-label="Clemenceau 92 — retour en haut de page"><img class="footer__logo" src="/media/logo-stack-dark.svg" width="520" height="127" alt="" loading="lazy" /></a>
+          <p class="footer__pitch">Carrosserie, peinture en cabine et pare-brise à Nanterre. Votre sinistre suivi avec l’expert, directement à l’atelier.</p>
+          <p class="label footer__langs">Particuliers · entreprises</p>
         </div>
         <div class="footer__col footer__col--wide">
           <p class="label">Contact</p>
           <address>
-            <a href="https://maps.app.goo.gl/2hibFTy7Ff3hPFmB8" target="_blank" rel="noopener" data-i18n="t161">Rue François-Joseph Navez 103<br />1030 Schaerbeek, Bruxelles</a>
-            <a class="footer__tel" href="tel:+32477777036">+32 477 77 70 36</a>
-            <a href="mailto:carrosserievanpraet@gmail.com">carrosserievanpraet@gmail.com</a>
+            <a href="https://maps.app.goo.gl/KmsS6edu2QDk12WX9" target="_blank" rel="noopener">95 avenue de la Liberté<br />92000 Nanterre</a>
+            <a class="footer__tel" href="tel:+33777007176">07 77 00 71 76</a>
+            <a href="tel:+33143330495">01 43 33 04 95</a>
+            <a href="mailto:clemenceau92@sfr.fr">clemenceau92@sfr.fr</a>
           </address>
-          <p class="footer__small" data-i18n="t162">Paiement&nbsp;: espèces, Bancontact, carte de crédit</p>
+          <p class="footer__small">Entrée et stationnement accessibles en fauteuil roulant</p>
         </div>
         <div class="footer__col footer__col--wide">
-          <p class="label" data-i18n="t163">Horaires</p>
+          <p class="label">Horaires</p>
           <ul class="footer__hours">
-            <li><span data-i18n="t164">Lun – ven</span><span>9:00 – 18:00</span></li>
-            <li><span data-i18n="t165">Samedi</span><span>9:00 – 14:00</span></li>
-            <li><span data-i18n="t166">Dimanche</span><span data-i18n="t167">Fermé</span></li>
+            <li><span>Lun – ven</span><span>9:00 – 13:00</span></li>
+            <li><span></span><span>14:00 – 18:00</span></li>
+            <li><span>Samedi</span><span>Fermé</span></li>
+            <li><span>Dimanche</span><span>Fermé</span></li>
           </ul>
         </div>
         <div class="footer__col">
-          <p class="label" data-i18n="t168">Navigation</p>
+          <p class="label">Navigation</p>
           <ul>
-            <li><a href="#services" data-i18n="t001">Services</a></li>
-            <li><a href="#prestations" data-i18n="t169">Toutes les prestations</a></li>
-            <li><a href="#atelier" data-i18n="t170">L’atelier</a></li>
-            <li><a href="#etapes" data-i18n="t090">Comment ça se passe</a></li>
-            <li><a href="#avis" data-i18n="t103">Avis clients</a></li>
-            <li><a href="#avis-google" data-i18n="t171">Avis Google</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#atelier">L’atelier</a></li>
+            <li><a href="#prestations">Toutes les prestations</a></li>
+            <li><a href="#realisations">Réalisations</a></li>
+            <li><a href="#avis-google">Avis Google</a></li>
+            <li><a href="#etapes">Comment ça se passe</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="#devis" data-i18n="t004">Devis gratuit</a></li>
+            <li><a href="#devis">Devis gratuit</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <p class="label" data-i18n="t172">Avis &amp; plateformes</p>
+          <p class="label">Avis &amp; réseaux</p>
           <ul class="footer__platforms">
-            <li><a href="https://maps.app.goo.gl/2hibFTy7Ff3hPFmB8" target="_blank" rel="noopener"><b>Google</b><small data-i18n="t173">Fiche et avis Google</small><i aria-hidden="true">↗</i></a></li>
-            <li><a href="https://fixico.be/fr/villes/schaerbeek/garage-van-praet" target="_blank" rel="noopener"><b>Fixico</b><small data-i18n="t174">9,5/10 · 34 avis</small><i aria-hidden="true">↗</i></a></li>
-            <li><a href="https://www.bolid.be/garages/schaerbeek/carrosserie-van-praet-schaerbeek-1030" target="_blank" rel="noopener"><b>Bolid</b><small data-i18n="t175">Fiche de l’atelier</small><i aria-hidden="true">↗</i></a></li>
+            <li><a href="https://maps.app.goo.gl/KmsS6edu2QDk12WX9" target="_blank" rel="noopener"><b>Google</b><small>5,0 · 291 avis</small><i aria-hidden="true">↗</i></a></li>
+            <li><a href="https://www.facebook.com/p/Carrosserie-Clemenceau-92-100087219401679/" target="_blank" rel="noopener"><b>Facebook</b><small>Carrosserie Clemenceau 92</small><i aria-hidden="true">↗</i></a></li>
+            <li><a href="https://www.instagram.com/carrosserieclemenceau92/" target="_blank" rel="noopener"><b>Instagram</b><small>@carrosserieclemenceau92</small><i aria-hidden="true">↗</i></a></li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <p data-i18n="t176">© 2026 Carrosserie Van Praet SRL · BCE / TVA BE&nbsp;0789.397.084 · RPM Bruxelles</p>
+      <p>© 2026 CLEMENCEAU 92 (CLM 92) · SARL au capital de 3&nbsp;000&nbsp;€ · RCS Nanterre 849&nbsp;779&nbsp;806</p>
       <nav class="footer__legal" aria-label="Informations légales">
-        <button type="button" data-dialog="legal" data-i18n="t177">Mentions légales</button>
-        <button type="button" data-dialog="privacy" data-i18n="t178">Confidentialité</button>
-        <a href="#top" data-i18n="t179">Haut de page ↑</a>
+        <button type="button" data-dialog="legal">Mentions légales</button>
+        <button type="button" data-dialog="privacy">Confidentialité</button>
+        <a href="#top">Haut de page ↑</a>
       </nav>
     </div>
 
     <!-- Mentions légales -->
     <dialog class="legal" id="legal" aria-labelledby="legal-title">
       <button type="button" class="legal__close" data-close aria-label="Fermer">×</button>
-      <h3 id="legal-title" data-i18n="t177">Mentions légales</h3>
-      <h4 data-i18n="t180">Éditeur du site</h4>
-      <p data-i18n="t181">Carrosserie Van Praet SRL (société à responsabilité limitée)<br />Siège&nbsp;: Rue François-Joseph Navez 103, 1030 Schaerbeek, Belgique<br />Numéro d’entreprise (BCE) et TVA&nbsp;: BE&nbsp;0789.397.084 — RPM Bruxelles<br />Téléphone&nbsp;: <a href="tel:+32477777036">+32 477 77 70 36</a><br />E-mail&nbsp;: <a href="mailto:carrosserievanpraet@gmail.com">carrosserievanpraet@gmail.com</a></p>
-      <h4 data-i18n="t182">Hébergement</h4>
-      <p data-i18n="t183">[Nom, adresse et contact de l’hébergeur à compléter lors de la mise en ligne.]</p>
-      <h4 data-i18n="t184">Propriété intellectuelle</h4>
-      <p data-i18n="t185">Les textes, le logo et les visuels de ce site appartiennent à Carrosserie Van Praet SRL, sauf mention contraire. Toute reproduction sans autorisation écrite est interdite. Les logos des constructeurs automobiles restent la propriété de leurs détenteurs respectifs&nbsp;; ils indiquent uniquement les marques prises en charge par l’atelier.</p>
-      <h4 data-i18n="t103">Avis clients</h4>
-      <p data-i18n="t186">Les avis présentés sont reformulés à partir des évaluations publiées sur Fixico. La note de 9,5/10 sur 34 avis correspond à la page Fixico de l’atelier consultée le 16 septembre 2026.</p>
-      <h4 data-i18n="t187">Liens externes</h4>
-      <p data-i18n="t188">Le site renvoie vers Google Maps, Fixico et Bolid. Carrosserie Van Praet SRL n’est pas responsable du contenu ni des pratiques de ces sites tiers.</p>
+      <h3 id="legal-title">Mentions légales</h3>
+      <h4>Éditeur du site</h4>
+      <p>CLEMENCEAU 92, nom commercial CLM 92<br />Société à responsabilité limitée (SARL) au capital de 3&nbsp;000&nbsp;€<br />Siège social&nbsp;: 95 avenue de la Liberté, 92000 Nanterre<br />RCS Nanterre 849&nbsp;779&nbsp;806 — SIRET 849&nbsp;779&nbsp;806&nbsp;00058<br />TVA intracommunautaire&nbsp;: FR77&nbsp;849&nbsp;779&nbsp;806<br />Directeur de la publication&nbsp;: M.&nbsp;Chaouki El Omami, gérant<br />Téléphone&nbsp;: <a href="tel:+33777007176">07 77 00 71 76</a> — E-mail&nbsp;: <a href="mailto:clemenceau92@sfr.fr">clemenceau92@sfr.fr</a></p>
+      <h4>Hébergement</h4>
+      <p>Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis — <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></p>
+      <h4>Médiation de la consommation</h4>
+      <p>[Coordonnées du médiateur de la consommation auquel l’atelier adhère, à compléter.]</p>
+      <h4>Propriété intellectuelle</h4>
+      <p>Les textes, le logo et les photos de ce site appartiennent à CLEMENCEAU 92, sauf mention contraire. Toute reproduction sans autorisation écrite est interdite. Les logos des constructeurs automobiles restent la propriété de leurs détenteurs respectifs&nbsp;; ils indiquent uniquement les marques prises en charge.</p>
+      <h4>Avis clients</h4>
+      <p>Les avis cités proviennent de la fiche Google de l’atelier, consultée le 22 septembre 2026 (note de 5,0 sur 5 pour 291 avis). Ils sont reproduits sans modification&nbsp;; seuls les noms sont abrégés.</p>
+      <h4>Liens externes</h4>
+      <p>Le site renvoie vers Google Maps, Facebook et Instagram. CLEMENCEAU 92 n’est pas responsable du contenu ni des pratiques de ces sites tiers.</p>
     </dialog>
 
     <!-- Confidentialité -->
     <dialog class="legal" id="privacy" aria-labelledby="privacy-title">
       <button type="button" class="legal__close" data-close aria-label="Fermer">×</button>
-      <h3 id="privacy-title" data-i18n="t178">Confidentialité</h3>
-      <h4 data-i18n="t189">Aucun suivi sur ce site</h4>
-      <p data-i18n="t190">Ce site ne dépose aucun cookie publicitaire ni de mesure d’audience. Le formulaire de devis n’enregistre rien sur le site : il prépare un e-mail que vous envoyez vous-même depuis votre messagerie. Les polices sont hébergées sur le site lui-même, sans appel à un service tiers. Votre choix de langue est seulement enregistré dans votre navigateur.</p>
-      <h4 data-i18n="t191">Données transmises à l’atelier</h4>
-      <p data-i18n="t192">Lorsque vous appelez l’atelier ou lui envoyez des photos, les informations communiquées (nom, coordonnées, véhicule, photos des dégâts) servent uniquement à établir votre devis et à réaliser la réparation. Elles sont traitées sur la base de mesures précontractuelles et du contrat (article 6.1.b du RGPD) et conservées le temps nécessaire, puis selon les obligations comptables légales.</p>
-      <h4 data-i18n="t193">Vos droits</h4>
-      <p data-i18n="t194">Vous pouvez demander l’accès, la rectification ou l’effacement de vos données en contactant l’atelier au <a href="tel:+32477777036">+32 477 77 70 36</a>. Vous pouvez aussi introduire une réclamation auprès de l’Autorité de protection des données, rue de la Presse 35, 1000 Bruxelles — <a href="https://www.autoriteprotectiondonnees.be" target="_blank" rel="noopener">autoriteprotectiondonnees.be</a>.</p>
-      <h4 data-i18n="t195">Sites tiers</h4>
-      <p data-i18n="t196">Les liens vers Google Maps, Fixico et Bolid vous font quitter ce site&nbsp;: leurs propres politiques de confidentialité s’appliquent.</p>
+      <h3 id="privacy-title">Confidentialité</h3>
+      <h4>Aucun suivi sur ce site</h4>
+      <p>Ce site ne dépose aucun cookie publicitaire ni de mesure d’audience. Le formulaire de devis n’enregistre rien sur le site&nbsp;: il prépare un e-mail que vous envoyez vous-même depuis votre messagerie. Les polices sont hébergées sur le site lui-même, sans appel à un service tiers.</p>
+      <h4>Données transmises à l’atelier</h4>
+      <p>Lorsque vous appelez l’atelier ou lui envoyez des photos, les informations communiquées (nom, coordonnées, véhicule, photos des dégâts) servent uniquement à établir votre devis et à réaliser la réparation. Elles sont traitées sur la base de mesures précontractuelles et du contrat (article 6.1.b du RGPD) et conservées le temps nécessaire, puis selon les obligations comptables légales.</p>
+      <h4>Vos droits</h4>
+      <p>Vous pouvez demander l’accès, la rectification ou l’effacement de vos données en contactant l’atelier au <a href="tel:+33777007176">07 77 00 71 76</a> ou à <a href="mailto:clemenceau92@sfr.fr">clemenceau92@sfr.fr</a>. Vous pouvez aussi adresser une réclamation à la CNIL, 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 — <a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>.</p>
+      <h4>Sites tiers</h4>
+      <p>Les liens vers Google Maps, Facebook et Instagram vous font quitter ce site&nbsp;: leurs propres politiques de confidentialité s’appliquent.</p>
     </dialog>
   </footer>
 

@@ -1,26 +1,25 @@
-// Avis Google de l'atelier (fournis par l'utilisateur depuis la fiche Google), cités tels quels.
-// Écartés : avis sans texte, avis d'un seul mot, avis hors sujet.
+// Avis de la fiche Google de l'atelier (5,0 sur 5, 291 avis, relevés le 22/09/2026), cités tels quels.
+// Seuls les noms sont abrégés. Écartés : avis sans texte et avis d'un seul mot.
 import gsap from 'gsap'
 import { siGoogle } from 'simple-icons'
-import { tr } from './i18n.js'
 
-export const GOOGLE_URL = 'https://share.google/LqZYZ5JYPHfEs9HVP'
+export const GOOGLE_URL = 'https://maps.app.goo.gl/KmsS6edu2QDk12WX9'
 
 const REVIEWS = [
-  { name: 'Soufiane M.', meta: { fr: 'Local Guide · il y a 8 mois', en: 'Local Guide · 8 months ago', nl: 'Local Guide · 8 maanden geleden' }, text: 'Très bon garage depuis lesx nouveau propriétaires ! Réparation carrosserie et mécanique impec\'! Anciens avis à revoir !!' },
-  { name: 'ADNAM BT', meta: { fr: 'Local Guide · il y a 2 ans', en: 'Local Guide · 2 years ago', nl: 'Local Guide · 2 jaar geleden' }, text: 'ils font un travail magnifique. Rapide/ résultat IMPECCABLE !!! Mon pare choc est comme neuf ! Et en + très respectueux et à l’écoute du client. Merci les frères !!!' },
-  { name: 'se nabil', meta: { fr: 'Local Guide · il y a 2 ans', en: 'Local Guide · 2 years ago', nl: 'Local Guide · 2 jaar geleden' }, text: 'Bon accueil, très bon conseils de divers professionnels intra muros. Ce garage abrite diverses fonctions: la mécanique sous toutes ses coutures, la carrosserie avec son propre four à peinture en passant par le polissage fait par un professionnel hors pair en la matière pour les amoureux de leurs voitures. Un garage avec une équipe de professionnels aux résultats époustouflants. A recommander …' },
-  { name: 'Arnaud Kerremans', meta: { fr: 'Local Guide · il y a 7 ans', en: 'Local Guide · 7 years ago', nl: 'Local Guide · 7 jaar geleden' }, text: 'Le travail sur la carrosserie était parfait, et le prix hyper compétitif.' },
-  { name: 'Philippe Donni', meta: { fr: 'Local Guide · il y a un an', en: 'Local Guide · a year ago', nl: 'Local Guide · een jaar geleden' }, text: 'A l écoute des clients et propose des solutions' },
-  { name: 'Didier Rader', meta: { fr: 'Local Guide · il y a 7 ans', en: 'Local Guide · 7 years ago', nl: 'Local Guide · 7 jaar geleden' }, text: 'Du travail de pro et avec le sourire. Excellent à tous points de vue. Je recommande' },
-  { name: 'Ciprian', meta: { fr: 'Local Guide · il y a un an', en: 'Local Guide · a year ago', nl: 'Local Guide · een jaar geleden' }, text: 'Super prix et bonne qualité' },
-  { name: 'lahcen abik', meta: { fr: 'il y a 6 ans · traduit du néerlandais', en: '6 years ago · translated from Dutch', nl: '6 jaar geleden · vertaald uit het Nederlands' }, text: 'Service rapide, prix bas' },
-  { name: 'Marwan Melloul', meta: { fr: 'il y a 3 ans · réparation de carrosseries', en: '3 years ago · bodywork repair', nl: '3 jaar geleden · carrosserieherstelling' }, text: 'Top travail' },
+  { name: 'Rasmus S.', meta: 'Visite en juin 2026', text: 'Je vous remercier pour le travail réalisé sur mon véhicule. Résultat impeccable et j’apprécie votre professionnalisme et votre sérieux ! Merci également pour votre accueil et votre disponibilité. C’est un plaisir de faire appel à un artisan de confiance. Bonne continuation à toi Mourad et à toute l’équipe !' },
+  { name: 'Jibril B.', meta: 'Local Guide · juin 2026', text: 'Très beau travail effectué par l’équipe sur un morceau de carénages qui avait été abîmé. Le résultat est impeccable, pas de différence avec la peinture d’origine. Je ne peux que recommander la carrosserie, Clemenceau 92.' },
+  { name: 'Jacques F.', meta: 'Visite en avril 2026', text: 'Accueil très cordial et attentif à ma demande de réparation d’un léger choc sur l’aile avant gauche de ma voiture. Travail réalisé à la perfection en un court délai, notamment la peinture de l’aile complète, apparaissant comme neuve et sans différence de teinte avec les éléments de carrosserie existants. Le coût tout à fait modéré de cette prestation, me conduit donc à recommander très vivement et sans aucune réserve cet artisan carrossier.' },
+  { name: 'Martina M.', meta: 'Local Guide · juin 2025', text: 'Excellent travail sur mon Ford Custom. Le gérant super agréable, pro et surtout sérieux. S’occupe de tout de A à Z c’est à dire du devis à la restitution du véhicule avec photos à l’appui. Je recommande vivement!' },
+  { name: 'Yasser E.', meta: 'Visite en février 2026', text: 'Très bon garage, travail nickel, équipe professionnelle et accueillante. RDV rapide, rien à dire 👌 Je recommande !' },
+  { name: 'Jean-Pierre P.', meta: 'Visite en novembre 2025', text: 'Je recommande vivement, excellente qualité de travaux de carrosserie, à un prix largement en dessous de tous ses concurrents, délai de réparation rapide…' },
+  { name: 'Hosan', meta: 'Avis en anglais', text: 'Very nice and fast service ! Highly recommended !!' },
+  { name: 'Patrick S.', meta: 'Avis en anglais', text: 'Nice people, quick service and reasonable price. I totally recommend!' },
+  { name: 'M. B.', meta: 'Avis en anglais', text: 'Great customer service, great and clean work, delivered on time, i recommend!' },
 ]
 
-const READ = { fr: 'Lire sur Google', en: 'Read on Google', nl: 'Lezen op Google' }
+const READ = 'Lire sur Google'
 const initials = (n) => n.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase()
-const HUES = ['#2e6cff', '#111110', '#1238d6', '#3a3a35', '#19a3e0']
+const HUES = ['#1f3fb0', '#111110', '#00adee', '#3a3a35', '#3159f0']
 const escape = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 
 const cell = (r, i, hidden) => `
@@ -28,9 +27,9 @@ const cell = (r, i, hidden) => `
     <blockquote class="greview__text">“${escape(r.text)}”</blockquote>
     <figcaption class="greview__who">
       <span class="greview__avatar" style="background:${HUES[i % HUES.length]}">${initials(r.name)}</span>
-      <span class="greview__id"><b>${escape(r.name)}</b><small data-meta="${i}">${tr(r.meta)}</small></span>
+      <span class="greview__id"><b>${escape(r.name)}</b><small>${r.meta}</small></span>
     </figcaption>
-    <a class="greview__btn" href="${GOOGLE_URL}" target="_blank" rel="noopener"${hidden ? ' tabindex="-1"' : ''}>${tr(READ)}</a>
+    <a class="greview__btn" href="${GOOGLE_URL}" target="_blank" rel="noopener"${hidden ? ' tabindex="-1"' : ''}>${READ}</a>
   </figure>`
 
 export function initGoogleReviews(section, { lenis, reduced }) {
@@ -70,13 +69,4 @@ export function initGoogleReviews(section, { lenis, reduced }) {
     if (!paused && !reduced) x -= (0.55 + boost) * (dt / 16.7)
     track.style.transform = `translate3d(${gsap.utils.wrap(-setW, 0, x + nudge).toFixed(2)}px,0,0)`
   })
-
-  // Changement de langue : libellés réécrits sur place (les avis restent cités dans leur langue d'origine)
-  return {
-    setLang: () => {
-      track.querySelectorAll('[data-meta]').forEach((el) => { el.textContent = tr(REVIEWS[+el.dataset.meta].meta) })
-      track.querySelectorAll('.greview__btn').forEach((el) => { el.textContent = tr(READ) })
-      requestAnimationFrame(measure)
-    },
-  }
 }

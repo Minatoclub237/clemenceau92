@@ -5,22 +5,18 @@ import './style.css'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
-import { captureOriginals, applyTexts, getLang, setLang, tr } from './i18n.js'
 import { renderBrands } from './brands.js'
 import { initFaq } from './faq.js'
 import { initPrestations } from './prestations.js'
 import { initGoogleReviews } from './google-reviews.js'
 import { initDock } from './dock.js'
 import { initBeforeAfter } from './before-after.js'
+import { initCrack } from './crack.js'
 
 gsap.registerPlugin(ScrollTrigger)
 // Mobile : la barre d'adresse qui se replie ne doit pas recalculer (et faire sauter) les animations
 ScrollTrigger.config({ ignoreMobileResize: true })
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-/* ---------- Langue : textes d'origine mémorisés, puis langue enregistrée appliquée avant tout rendu ---------- */
-captureOriginals()
-if (getLang() !== 'fr') applyTexts()
 
 /* ---------- Défilement fluide (scroll natif conservé, barre visible) ---------- */
 const lenis = reduced ? null : new Lenis({ lerp: 0.09, smoothWheel: true })
@@ -43,47 +39,42 @@ document.addEventListener('click', (e) => {
   lenis ? lenis.scrollTo(el, { offset: id === '#top' ? 0 : -70, duration: 1.4 }) : window.scrollTo(0, el ? el.offsetTop - 70 : 0)
 })
 
-/* ---------- Vidéo hero : lecture en boucle (relance si le navigateur la met en pause) ---------- */
-const video = document.querySelector('.hero__video')
-video.play().catch(() => {})
-document.addEventListener('visibilitychange', () => { if (!document.hidden) video.play().catch(() => {}) })
+/* ---------- Pare-brise fissuré du hero (absent si l'utilisateur réduit les animations) ---------- */
+const crack = reduced ? null : initCrack(document.querySelector('.hero__crack'))
 
-/* ---------- Statut d'ouverture en direct (heure de Bruxelles) ---------- */
-const STATUS = {
-  fr: { open: (h) => `Ouvert · jusqu’à ${h}:00`, closed: (w, h) => `Fermé · ouvre ${w} à ${h}:00`, today: 'aujourd’hui', tomorrow: 'demain', days: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'] },
-  en: { open: (h) => `Open · until ${h}:00`, closed: (w, h) => `Closed · opens ${w} at ${h}:00`, today: 'today', tomorrow: 'tomorrow', days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] },
-  nl: { open: (h) => `Open · tot ${h}:00`, closed: (w, h) => `Gesloten · opent ${w} om ${h}:00`, today: 'vandaag', tomorrow: 'morgen', days: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'] },
-}
-const updateStatus = (() => {
-  const HOURS = { 1: [9, 18], 2: [9, 18], 3: [9, 18], 4: [9, 18], 5: [9, 18], 6: [9, 14] } // dimanche fermé
+/* ---------- Statut d'ouverture en direct (heure de Paris, pause de 13 h à 14 h) ---------- */
+{
+  const WEEK = [[9, 13], [14, 18]]
+  const HOURS = { 1: WEEK, 2: WEEK, 3: WEEK, 4: WEEK, 5: WEEK } // samedi et dimanche fermés
+  const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi']
   const card = document.querySelector('.hero-call')
   const label = card?.querySelector('[data-open-status]')
   const update = () => {
     if (!card) return
-    const S = tr(STATUS)
-    const parts = Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Brussels', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false })
+    const parts = Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false })
       .formatToParts(new Date()).map((p) => [p.type, p.value]))
     const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(parts.weekday)
     const now = +parts.hour % 24 + +parts.minute / 60
-    const today = HOURS[day]
-    const open = today && now >= today[0] && now < today[1]
+    const slot = (HOURS[day] || []).find(([a, b]) => now >= a && now < b)
     let text
-    if (open) text = S.open(today[1])
+    if (slot) text = `Ouvert · jusqu’à ${slot[1]}:00`
     else {
-      // prochaine ouverture : plus tard aujourd'hui ou jour suivant
-      let d = day, first = true
-      while (!(HOURS[d] && (!first || now < HOURS[d][0]))) { d = (d + 1) % 7; first = false }
-      const when = d === day ? S.today : d === (day + 1) % 7 ? S.tomorrow : S.days[d]
-      text = S.closed(when, HOURS[d][0])
+      // prochaine ouverture : plus tard aujourd'hui (après la pause) ou jour suivant
+      const later = (HOURS[day] || []).find(([a]) => now < a)
+      if (later) text = later === HOURS[day][1] ? `Pause · réouverture à ${later[0]}:00` : `Fermé · ouvre aujourd’hui à ${later[0]}:00`
+      else {
+        let d = (day + 1) % 7
+        while (!HOURS[d]) d = (d + 1) % 7
+        text = `Fermé · ouvre ${d === (day + 1) % 7 ? 'demain' : DAYS[d]} à ${HOURS[d][0][0]}:00`
+      }
     }
     label.textContent = text
-    card.classList.toggle('is-open', !!open)
-    card.classList.toggle('is-closed', !open)
+    card.classList.toggle('is-open', !!slot)
+    card.classList.toggle('is-closed', !slot)
   }
   update()
   setInterval(update, 60000)
-  return update
-})()
+}
 
 /* ---------- Nav : largeur pleine au repos, recadrée sur la grille dès qu'on défile ---------- */
 const nav = document.getElementById('nav')
@@ -132,14 +123,11 @@ document.querySelectorAll('[data-dialog]').forEach((btn) => {
 const presta = initPrestations(document.getElementById('prestations'), { lenis, reduced })
 
 /* ---------- Avis Google en boucle ---------- */
-const greviews = initGoogleReviews(document.getElementById('avis-google'), { lenis, reduced })
+initGoogleReviews(document.getElementById('avis-google'), { lenis, reduced })
 
-/* ---------- Formulaire de devis → e-mail pré-rempli dans la langue du visiteur ---------- */
-const MAIL_TEXT = {
-  fr: { subject: 'Demande de devis', hello: 'Bonjour,', ask: 'Je souhaite recevoir un devis gratuit.', name: 'Nom', phone: 'Téléphone', email: 'E-mail', make: 'Marque', model: 'Modèle', year: 'Année', work: 'Intervention', msg: 'Message', photos: '(Photos des dégâts en pièce jointe)' },
-  en: { subject: 'Quote request', hello: 'Hello,', ask: 'I would like to receive a free quote.', name: 'Name', phone: 'Phone', email: 'E-mail', make: 'Make', model: 'Model', year: 'Year', work: 'Type of work', msg: 'Message', photos: '(Photos of the damage attached)' },
-  nl: { subject: 'Offerteaanvraag', hello: 'Goedendag,', ask: 'Ik ontvang graag een gratis offerte.', name: 'Naam', phone: 'Telefoon', email: 'E-mail', make: 'Merk', model: 'Model', year: 'Bouwjaar', work: 'Herstelling', msg: 'Bericht', photos: '(Foto’s van de schade in bijlage)' },
-}
+/* ---------- Formulaire de devis → e-mail pré-rempli ---------- */
+const MAIL_TO = 'clemenceau92@sfr.fr'
+const M = { subject: 'Demande de devis', hello: 'Bonjour,', ask: 'Je souhaite recevoir un devis gratuit.', name: 'Nom', phone: 'Téléphone', email: 'E-mail', make: 'Marque', model: 'Modèle', year: 'Année', work: 'Intervention', msg: 'Message', photos: '(Photos des dégâts en pièce jointe)' }
 {
   const form = document.getElementById('quote-form')
   const brand = form.elements.marque
@@ -157,7 +145,6 @@ const MAIL_TEXT = {
     required.forEach((el) => el.classList.toggle('is-invalid', bad.includes(el)))
     err.hidden = !bad.length
     if (bad.length) return bad[0].focus()
-    const M = tr(MAIL_TEXT)
     const v = (n) => form.elements[n].value.trim() || '—'
     const subject = `${M.subject} — ${v('marque')} ${form.elements.modele.value.trim()}`.trim()
     const body = [
@@ -166,15 +153,15 @@ const MAIL_TEXT = {
       `${M.make} : ${v('marque')}`, `${M.model} : ${v('modele')}`, `${M.year} : ${v('annee')}`, `${M.work} : ${v('intervention')}`, '',
       `${M.msg} :`, v('message'), '', M.photos,
     ].join('\n')
-    window.location.href = `mailto:carrosserievanpraet@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = `mailto:${MAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   })
 }
 
 /* ---------- FAQ ---------- */
-const faq = initFaq(document.getElementById('faq'), { reduced })
+initFaq(document.getElementById('faq'), { reduced })
 
 /* ---------- Barre d'action flottante (mobile) ---------- */
-const dock = initDock()
+initDock()
 
 /* ---------- Découpes ---------- */
 // Mots masqués (conserve <br> et espaces insécables)
@@ -233,16 +220,15 @@ function splitChars(el) {
   return chars
 }
 
-// Textes découpés mais non traduits : restaurés avant chaque nouvelle découpe
+// Textes découpés : source d'origine restaurée avant chaque nouvelle découpe
 const untranslatedSources = new Map()
 const fresh = (el) => {
-  if (el.hasAttribute('data-i18n')) return el
   if (untranslatedSources.has(el)) el.innerHTML = untranslatedSources.get(el)
   else untranslatedSources.set(el, el.innerHTML)
   return el
 }
 
-/* ---------- Bandeau cinétique (installé une fois, recloné à chaque changement de langue) ---------- */
+/* ---------- Bandeau cinétique : pistes doublées pour une boucle sans raccord ---------- */
 const kineticRows = gsap.utils.toArray('.kinetic__row').map((row) => ({ row, track: row.querySelector('.kinetic__track'), dir: +row.dataset.dir, x: 0 }))
 const cloneKinetic = () => kineticRows.forEach(({ row, track }) => {
   ;[...row.children].slice(1).forEach((c) => c.remove())
@@ -267,7 +253,7 @@ if (!reduced) {
   })
 }
 
-/* ---------- Avis Fixico : carte active (survol sur ordinateur, centre de l'écran partout) ---------- */
+/* ---------- Réalisations : carte active (survol sur ordinateur, centre de l'écran partout) ---------- */
 const reviewCards = gsap.utils.toArray('.review')
 if (!reduced) {
   const rail = document.querySelector('.reviews__rail')
@@ -296,8 +282,7 @@ if (!reduced) {
 }
 
 /* =====================================================================
-   ANIMATIONS AU DÉFILEMENT — construites dans un contexte GSAP réversible,
-   reconstruites à l'identique après un changement de langue
+   ANIMATIONS AU DÉFILEMENT — construites dans un contexte GSAP réversible
    ===================================================================== */
 function buildMotion({ intro }) {
   const scrub = 0.6
@@ -316,6 +301,8 @@ function buildMotion({ intro }) {
   gsap.set(nums, { opacity: 0, y: 70 })
   const htl = gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom bottom', scrub: 0.8 } })
   htl.to('.hero__scroll', { opacity: 0, duration: 0.1 }, 0)
+  if (crack) htl.to(crack.state, { heal: 1, ease: 'none', duration: 0.42, onUpdate: crack.render }, 0.02)
+  htl.fromTo('.hero__glare', { xPercent: -70 }, { xPercent: 70, ease: 'none', duration: 0.5 }, 0)
     .to(heroChars, { y: () => -gsap.utils.random(80, 340), rotate: () => gsap.utils.random(-18, 18), opacity: 0, ease: 'power1.in', stagger: { each: 0.004, from: 'random' }, duration: 0.45 }, 0.05)
     .to(['.hero__eyebrow', '.hero__sub', '.hero__actions'], { opacity: 0, y: -50, ease: 'power1.in', duration: 0.3 }, 0.05)
     .to(nums, { opacity: 1, y: 0, ease: 'power3.out', stagger: 0.08, duration: 0.4 }, 0.45)
@@ -420,7 +407,7 @@ function buildMotion({ intro }) {
   const stepEls = gsap.utils.toArray('.step')
   const steps = stepEls.map((step) => [...splitWords(fresh(step.querySelector('.step__title'))), ...splitWords(fresh(step.querySelector('.step__text')))])
   const counter = document.querySelector('.process__current')
-  gsap.set(steps.flat(), { yPercent: 115 })
+  gsap.set(steps.flat(), { yPercent: 150 }) // 150 % : les accents (É, À) ne dépassent pas du masque
   const ptl = gsap.timeline({
     defaults: { ease: 'power3.inOut' },
     scrollTrigger: { trigger: '.process', start: 'top 65%', end: 'bottom bottom', scrub },
@@ -437,14 +424,14 @@ function buildMotion({ intro }) {
   ptl.fromTo('.process__digits-track', { yPercent: 25 }, { yPercent: 0, duration: 0.5 }, 0)
   ;[1, 2, 3].forEach((i) => {
     const t = 0.5 + i
-    ptl.to(steps[i - 1], { yPercent: -115, stagger: 0.015, duration: 0.45 }, t)
+    ptl.to(steps[i - 1], { yPercent: -150, stagger: 0.015, duration: 0.45 }, t)
     ptl.to(steps[i], { yPercent: 0, stagger: 0.02, duration: 0.5 }, t + 0.15)
     ptl.to('.process__digits-track', { yPercent: -25 * i, duration: 0.6 }, t)
   })
   ptl.fromTo('.process__fill', { scaleX: 0 }, { scaleX: 1, ease: 'none', duration: 4.2 }, 0)
   ptl.set({}, {}, 4.5)
 
-  /* ================= AVIS ================= */
+  /* ================= RÉALISATIONS ================= */
   const track = document.querySelector('.reviews__track')
   const hScroll = gsap.to(track, {
     x: () => -(track.scrollWidth - window.innerWidth),
@@ -466,7 +453,7 @@ function buildMotion({ intro }) {
   const scoreObj = { v: 0 }
   gsap.to(scoreObj, {
     v: +score.dataset.to, ease: 'power2.out',
-    onUpdate: () => { score.textContent = scoreObj.v.toFixed(1).replace('.', getLang() === 'en' ? '.' : ',') },
+    onUpdate: () => { score.textContent = String(Math.round(scoreObj.v)).padStart(2, '0') },
     scrollTrigger: { trigger: '.reviews', start: 'top 85%', end: 'top 10%', scrub },
   })
 }
@@ -480,46 +467,11 @@ function playIntro() {
   gsap.to('.hero__eyebrow', { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.5 })
   gsap.to(['.hero-btn', '.hero-call'], { opacity: 1, y: 0, duration: 1, ease: 'power3.out', stagger: 0.12, delay: 0.65 })
   gsap.to('.hero-badge', { opacity: 1, x: 0, duration: 1, ease: 'power3.out', stagger: 0.12, delay: 0.7 })
-}
-
-/* ---------- Sélecteur de langue : bascule instantanée, animations reconstruites sur place ---------- */
-const switcher = document.querySelector('[data-lang-switch]')
-const syncSwitch = () => {
-  switcher.querySelector('[data-lang-current]').textContent = getLang().toUpperCase()
-  switcher.querySelectorAll('.lang__opt').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === getLang())))
-}
-const closeMenu = () => { switcher.classList.remove('is-open'); switcher.querySelector('.lang__current').setAttribute('aria-expanded', 'false') }
-function changeLanguage(next) {
-  if (next === getLang() || !setLang(next)) return
-  motion?.revert() // remet chaque élément animé dans son état d'origine
-  applyTexts() // textes non découpés, dans la nouvelle langue
-  cloneKinetic()
-  faq.setLang()
-  presta.setLang()
-  greviews.setLang()
-  dock.setLang()
-  updateStatus()
-  if (!reduced) motion = gsap.context(() => buildMotion({ intro: false }))
-  ScrollTrigger.refresh()
-  // Les animations liées au défilement rejoignent immédiatement la position courante
-  ScrollTrigger.getAll().forEach((st) => {
-    const tween = typeof st.getTween === 'function' ? st.getTween() : null
-    if (tween && typeof tween.progress === 'function') tween.progress(1)
-  })
-  syncSwitch()
-}
-syncSwitch()
-switcher.addEventListener('click', (e) => {
-  const opt = e.target.closest('.lang__opt')
-  if (opt) { changeLanguage(opt.dataset.lang); closeMenu(); return }
-  if (e.target.closest('.lang__current')) {
-    const open = !switcher.classList.contains('is-open')
-    switcher.classList.toggle('is-open', open)
-    switcher.querySelector('.lang__current').setAttribute('aria-expanded', String(open))
+  if (crack) {
+    gsap.to(crack.state, { draw: 1, duration: 1.3, ease: 'expo.out', delay: 0.15, onUpdate: crack.render })
+    gsap.fromTo('.hero__media', { x: 0 }, { keyframes: { x: [7, -5, 3, -1, 0] }, duration: 0.4, ease: 'power2.out', delay: 0.15, clearProps: 'transform' })
   }
-})
-document.addEventListener('click', (e) => { if (!switcher.contains(e.target)) closeMenu() })
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu() })
+}
 
 window.addEventListener('load', () => ScrollTrigger.refresh())
 
@@ -527,12 +479,12 @@ window.addEventListener('load', () => ScrollTrigger.refresh())
 {
   const loader = document.getElementById('loader')
   let quick = true
-  try { quick = !!sessionStorage.getItem('vp-intro') } catch {}
+  try { quick = !!sessionStorage.getItem('c92-intro') } catch {}
   const minDuration = quick || reduced ? 0 : 1350 // le temps que le logo finisse de se dessiner
   const fontsReady = Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 900))])
   const minTime = new Promise((r) => setTimeout(r, Math.max(0, minDuration - performance.now())))
   Promise.all([fontsReady, minTime]).then(() => {
-    try { sessionStorage.setItem('vp-intro', '1') } catch {}
+    try { sessionStorage.setItem('c92-intro', '1') } catch {}
     const start = () => (motion ? motion.add(playIntro) : null)
     if (!loader) return start()
     if (reduced) { loader.remove(); return }
@@ -541,7 +493,7 @@ window.addEventListener('load', () => ScrollTrigger.refresh())
       .to('.loader__bar i', { scaleX: 1, duration: quick ? 0 : 0.22, ease: 'power2.out' }, 0)
       .to('.loader__inner', { opacity: 0, y: -24, duration: quick ? 0.15 : 0.32, ease: 'power2.in' }, quick ? 0 : 0.1)
       .to(loader, { clipPath: 'inset(0% 0% 100% 0%)', duration: quick ? 0.4 : 0.75, ease: 'power4.inOut', onComplete: () => { loader.remove(); lenis?.start(); ScrollTrigger.refresh() } }, quick ? 0 : 0.2)
-      .fromTo('.hero__video', { scale: 1.12 }, { scale: 1, duration: 1.8, ease: 'power3.out', clearProps: 'transform' }, '<')
+      .fromTo('.hero__img', { scale: 1.12 }, { scale: 1, duration: 1.8, ease: 'power3.out', clearProps: 'transform' }, '<')
       .add(start, quick ? 0.1 : 0.35)
   })
 }
