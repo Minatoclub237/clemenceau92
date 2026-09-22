@@ -14,6 +14,8 @@ import { initBeforeAfter } from './before-after.js'
 import { initCrack } from './crack.js'
 import { initLightbox } from './lightbox.js'
 import { initZone } from './zone.js'
+import { autoParallax, autoTilt, scroll3d, stagger, parallax } from './motion3d.js'
+import { siWhatsapp } from 'simple-icons'
 
 gsap.registerPlugin(ScrollTrigger)
 // Mobile : la barre d'adresse qui se replie ne doit pas recalculer (et faire sauter) les animations
@@ -108,6 +110,11 @@ initBeforeAfter(document.querySelector('.capabilities'), { reduced })
 /* ---------- Bande des marques ---------- */
 renderBrands(document.querySelector('.brands__track'))
 
+/* ---------- Boutons WhatsApp : icône officielle (simple-icons) ---------- */
+document.querySelectorAll('[data-wa-icon]').forEach((el) => {
+  el.insertAdjacentHTML('afterbegin', `<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="${siWhatsapp.path}" fill="currentColor"/></svg>`)
+})
+
 /* ---------- Fenêtres légales (dialog natif) ---------- */
 document.querySelectorAll('[data-dialog]').forEach((btn) => {
   const dlg = document.getElementById(btn.dataset.dialog)
@@ -120,6 +127,13 @@ document.querySelectorAll('[data-dialog]').forEach((btn) => {
     if (e.target === dlg && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) dlg.close()
   })
 })
+
+// Anciennes URL redirigées vers /?legal ou /?privacy : la fenêtre s'ouvre au chargement
+{
+  const q = new URLSearchParams(location.search)
+  const id = q.has('legal') ? 'legal' : q.has('privacy') ? 'privacy' : null
+  if (id) window.addEventListener('load', () => { document.getElementById(id)?.showModal(); lenis?.stop() })
+}
 
 /* ---------- Catalogue : carrousel 3D ---------- */
 const presta = initPrestations(document.getElementById('prestations'), { lenis, reduced })
@@ -423,6 +437,22 @@ function buildMotion({ intro }) {
     })
   })
 
+  /* ================= OFFRE PARE-BRISE ================= */
+  const offer = document.getElementById('offre')
+  gsap.utils.toArray(offer.querySelectorAll('.ocard')).forEach((card, i) => scroll3d(card, { rotateX: 22, z: -180, y: 70, start: 'top 95%', end: `top ${58 - i * 4}%` }))
+  autoParallax(offer)
+  autoTilt(offer, { max: 6 })
+
+  /* ================= MÉCANIQUE ================= */
+  const mecha = document.getElementById('mecanique')
+  autoParallax(mecha)
+  autoTilt(mecha, { max: 5 })
+  stagger(mecha.querySelectorAll('.mcard'), { y: 56, each: 0.09 })
+  gsap.fromTo(mecha.querySelector('.mecha__media img'), { scale: 1.16 }, {
+    scale: 1, ease: 'none',
+    scrollTrigger: { trigger: mecha.querySelector('.mecha__media'), start: 'top bottom', end: 'bottom top', scrub: true },
+  })
+
   /* ================= CATALOGUE ================= */
   const prestaNum = document.querySelector('[data-presta-count]')
   const prestaObj = { v: 0 }
@@ -433,6 +463,7 @@ function buildMotion({ intro }) {
   })
 
   /* ================= AVIS GOOGLE ================= */
+  stagger(document.querySelectorAll('.greviews__themes li'), { y: 18, each: 0.04 })
   // La bande s'ouvre de haut en bas à son arrivée, les flèches suivent (réversible)
   gsap.fromTo('.greviews__strip', { clipPath: 'inset(0% 0% 100% 0% round 16px)', y: 70 }, {
     clipPath: 'inset(0% 0% 0% 0% round 16px)', y: 0, ease: 'power2.out',
@@ -442,6 +473,17 @@ function buildMotion({ intro }) {
     y: 0, opacity: 1, stagger: 0.1, ease: 'power2.out',
     scrollTrigger: { trigger: '.greviews__nav', start: 'top 100%', end: 'top 80%', scrub },
   })
+
+  /* ================= VENIR À L'ATELIER ================= */
+  parallax(document.querySelector('.zone__map'), { speed: 0.07 })
+  stagger(document.querySelectorAll('.zone__list li'), { y: 26, each: 0.06 })
+
+  /* ================= DEVIS ================= */
+  scroll3d(document.querySelector('.qf'), { rotateX: 14, z: -120, y: 50, start: 'top 96%', end: 'top 55%' })
+  stagger(document.querySelectorAll('.quote__perks li'), { y: 24, each: 0.07 })
+
+  /* ================= PIED DE PAGE ================= */
+  stagger(document.querySelectorAll('.footer__col'), { y: 34, each: 0.06 })
 
   /* ================= ÉTAPES ================= */
   const stepEls = gsap.utils.toArray('.step')

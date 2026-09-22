@@ -1060,3 +1060,71 @@ img, video, canvas, svg { display: block; }
   .zone__landmark text { font-size: 16px; }
   .zone__home text { font-size: 15px; }
 }
+
+/* =====================================================================
+   ÉTAPE 3 — offre pare-brise, mécanique, boutons WhatsApp
+   ===================================================================== */
+/* Bouton WhatsApp (vert officiel, texte blanc) */
+.wa-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: #25d366; color: #0b3d20; font-weight: 600; font-size: 15px; transition: transform .3s var(--ease), box-shadow .3s; }
+.wa-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -18px rgba(37,211,102,.9); }
+.wa-btn--lg { margin-top: 2vw; padding: 15px 22px; font-size: 16px; }
+
+/* ---------------- OFFRE PARE-BRISE ---------------- */
+/* Fond opaque : les scènes collantes qui précèdent (panneaux, catalogue) ne doivent pas transparaître */
+.offer { position: relative; z-index: 2; background: var(--bg); padding-block: 9vw 2vw; }
+.offer__head { max-width: 46em; }
+.offer__head .label { color: #9a9a92; margin-bottom: 1.2vw; }
+.offer__title { font-family: var(--futur); font-size: var(--display); font-weight: 400; line-height: 1.05; letter-spacing: .03em; text-transform: uppercase; -webkit-text-stroke: .03em currentColor; }
+.offer__lead { margin-top: 1.4vw; font-size: max(16px, 1.2vw); line-height: 1.45; color: #cfcfc8; }
+.offer__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6vw; margin-top: 3.4vw; perspective: 1400px; }
+.ocard { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 2vw 1.8vw 2.2vw; border: 1px solid #34342f; border-radius: 16px;
+  background: linear-gradient(160deg, #24242010, #2b2b2860); transform-style: preserve-3d; will-change: transform; }
+.ocard::after { content: ''; position: absolute; inset: 0; border-radius: 16px; pointer-events: none;
+  background: radial-gradient(70% 60% at 50% 0%, rgba(0,173,238,.14), rgba(0,173,238,0) 70%); opacity: 0; transition: opacity .45s; }
+.ocard:hover::after { opacity: 1; }
+.ocard__num { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: var(--cyan); }
+.ocard__title { font-family: var(--futur); font-size: max(20px, 1.7vw); font-weight: 400; line-height: 1.15; letter-spacing: .02em; text-transform: uppercase; }
+.ocard__text { font-size: 16px; line-height: 1.45; color: var(--muted); }
+.ocard--cta { border-color: rgba(0,173,238,.45); background: linear-gradient(160deg, rgba(0,173,238,.12), rgba(28,50,140,.18)); }
+.ocard--cta .ocard__text { color: #cfcfc8; }
+.ocard--cta .wa-btn { align-self: flex-start; margin-top: auto; }
+.offer__terms { margin-top: 2vw; max-width: 62em; font-size: 13px; line-height: 1.5; color: #8a8a83; }
+.offer__terms a { color: #cfcfc8; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------------- MÉCANIQUE & ENTRETIEN ---------------- */
+.mecha { position: relative; z-index: 2; background: var(--bg); padding-block: 8vw 2vw; }
+.mecha__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: center; gap: 4vw; }
+.mecha__text .label { color: #9a9a92; margin-bottom: 1.2vw; }
+.mecha__title { font-family: var(--futur); font-size: var(--display); font-weight: 400; line-height: 1.05; letter-spacing: .03em; text-transform: uppercase; -webkit-text-stroke: .03em currentColor; }
+.mecha__lead { margin-top: 1.4vw; font-size: max(16px, 1.15vw); line-height: 1.45; color: #cfcfc8; }
+.mecha__media { margin: 0; border-radius: 16px; overflow: hidden; }
+.mecha__media img { width: 100%; height: auto; display: block; will-change: transform; }
+.mecha__cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; margin-top: 3.4vw; perspective: 1400px; }
+.mcard { display: flex; flex-direction: column; gap: 10px; padding: 1.7vw 1.4vw 1.9vw; border: 1px solid #34342f; border-radius: 14px; background: #1f1f1c;
+  transform-style: preserve-3d; will-change: transform; transition: border-color .4s, background-color .4s; }
+.mcard:hover { border-color: rgba(0,173,238,.4); background: #232320; }
+.mcard__ico { display: block; width: 38px; height: 38px; color: var(--cyan); }
+.mcard__ico svg { width: 100%; height: 100%; }
+.mcard__title { font-family: var(--futur); font-size: max(15px, 1.05vw); font-weight: 400; line-height: 1.2; letter-spacing: .02em; }
+.mcard__text { font-size: 15px; line-height: 1.4; color: var(--muted); }
+
+/* Perspective pour l'arrivée en profondeur du formulaire */
+.quote__box { perspective: 1600px; }
+.qf { transform-style: preserve-3d; will-change: transform; }
+
+@media (max-width: 900px) {
+  .offer { padding-block: 80px 10px; }
+  .offer__head .label, .mecha__text .label { margin-bottom: 14px; }
+  .offer__lead, .mecha__lead { margin-top: 16px; }
+  .offer__cards { grid-template-columns: 1fr; gap: 14px; margin-top: 28px; }
+  .ocard { padding: 22px 20px 24px; }
+  .offer__terms { margin-top: 22px; }
+  .mecha { padding-block: 70px 10px; }
+  .mecha__grid { grid-template-columns: 1fr; gap: 26px; }
+  .mecha__cards { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 26px; }
+  .mcard { padding: 16px 14px 18px; }
+  .wa-btn--lg { margin-top: 20px; }
+}
+@media (max-width: 560px) {
+  .mecha__cards { grid-template-columns: 1fr; }
+}

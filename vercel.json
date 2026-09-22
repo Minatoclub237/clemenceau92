@@ -1,0 +1,271 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/atelier-de-carrosserie-a-nanterre.html",
+      "destination": "/#atelier",
+      "permanent": true
+    },
+    {
+      "source": "/nos-services.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/nos-services/carrosserie-de-voiture-a-nanterre.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/nos-services/remplacement-de-pare-brise-a-nanterre.html",
+      "destination": "/#offre",
+      "permanent": true
+    },
+    {
+      "source": "/nos-services/revision-de-voiture-a-nanterre.html",
+      "destination": "/#mecanique",
+      "permanent": true
+    },
+    {
+      "source": "/nos-services/entretien-de-voiture-a-nanterre.html",
+      "destination": "/#mecanique",
+      "permanent": true
+    },
+    {
+      "source": "/realisation-atelier-de-carrosserie-nanterre.html",
+      "destination": "/#realisations",
+      "permanent": true
+    },
+    {
+      "source": "/nos-realisations.html",
+      "destination": "/#realisations",
+      "permanent": true
+    },
+    {
+      "source": "/contact-garage-automobile-a-nanterre.html",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/votre-avis.html",
+      "destination": "/#avis-google",
+      "permanent": true
+    },
+    {
+      "source": "/actualites.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/actualites/mise-en-ligne-de-notre-nouveau-site-internet.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/plan-du-site.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/mentions-legales.html",
+      "destination": "/?legal",
+      "permanent": true
+    },
+    {
+      "source": "/politique-de-confidentialite.html",
+      "destination": "/?privacy",
+      "permanent": true
+    },
+    {
+      "source": "/carrosserie-nanterre.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/carrosserie-rueil-malmaison.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/carrosserie-suresnes.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/carrosserie-puteaux.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/carrosserie-colombes.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/carrossier-nanterre.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/carrossier-rueil-malmaison.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/carrossier-suresnes.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/carrossier-puteaux.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/carrossier-colombes.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/peinture-carrosserie-nanterre.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/peinture-carrosserie-rueil-malmaison.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/peinture-carrosserie-suresnes.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/peinture-carrosserie-puteaux.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/peinture-carrosserie-colombes.html",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/reparation-carrosserie-voiture-nanterre.html",
+      "destination": "/#realisations",
+      "permanent": true
+    },
+    {
+      "source": "/reparation-carrosserie-voiture-rueil-malmaison.html",
+      "destination": "/#realisations",
+      "permanent": true
+    },
+    {
+      "source": "/reparation-carrosserie-voiture-suresnes.html",
+      "destination": "/#realisations",
+      "permanent": true
+    },
+    {
+      "source": "/reparation-carrosserie-voiture-puteaux.html",
+      "destination": "/#realisations",
+      "permanent": true
+    },
+    {
+      "source": "/reparation-carrosserie-voiture-colombes.html",
+      "destination": "/#realisations",
+      "permanent": true
+    },
+    {
+      "source": "/remplacement-pare-brise-nanterre.html",
+      "destination": "/#offre",
+      "permanent": true
+    },
+    {
+      "source": "/remplacement-pare-brise-rueil-malmaison.html",
+      "destination": "/#offre",
+      "permanent": true
+    },
+    {
+      "source": "/remplacement-pare-brise-suresnes.html",
+      "destination": "/#offre",
+      "permanent": true
+    },
+    {
+      "source": "/remplacement-pare-brise-puteaux.html",
+      "destination": "/#offre",
+      "permanent": true
+    },
+    {
+      "source": "/remplacement-pare-brise-colombes.html",
+      "destination": "/#offre",
+      "permanent": true
+    },
+    {
+      "source": "/pneus-nanterre.html",
+      "destination": "/#mecanique",
+      "permanent": true
+    },
+    {
+      "source": "/pneus-rueil-malmaison.html",
+      "destination": "/#mecanique",
+      "permanent": true
+    },
+    {
+      "source": "/pneus-suresnes.html",
+      "destination": "/#mecanique",
+      "permanent": true
+    },
+    {
+      "source": "/pneus-puteaux.html",
+      "destination": "/#mecanique",
+      "permanent": true
+    },
+    {
+      "source": "/pneus-colombes.html",
+      "destination": "/#mecanique",
+      "permanent": true
+    },
+    {
+      "source": "/service-carte-grise-nanterre.html",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/service-carte-grise-rueil-malmaison.html",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/service-carte-grise-suresnes.html",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/service-carte-grise-puteaux.html",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/service-carte-grise-colombes.html",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/(.*).html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/media/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

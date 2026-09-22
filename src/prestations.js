@@ -9,6 +9,7 @@ const CATALOGUE = [
   { title: 'Pare-brise', items: ['Remplacement du pare-brise', 'Garantie bris de glace, selon votre contrat', 'Démarches avec votre assureur'] },
   { title: 'Sinistre & assurance', items: ['Visite de l’expert à l’atelier', 'Suivi du dossier avec l’assurance', 'Libre choix du réparateur (loi Hamon)'] },
   { title: 'Utilitaires & motos', items: ['Fourgons et utilitaires', 'Véhicules de société', 'Carénages de moto'] },
+  { title: 'Mécanique & entretien', items: ['Révision et vidange', 'Filtres', 'Kit de distribution', 'Kit d’embrayage', 'Freins et contrôles'] },
 ]
 
 const N = CATALOGUE.length

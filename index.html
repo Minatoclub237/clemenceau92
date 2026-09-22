@@ -52,6 +52,10 @@
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "13:00" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "14:00", "closes": "18:00" }
     ],
+    "makesOffer": [
+      { "@type": "Offer", "name": "Remplacement de pare-brise : franchise bris de glace remboursée", "category": "Pare-brise" },
+      { "@type": "Offer", "name": "Remplacement de pare-brise : révision-vidange offerte", "category": "Pare-brise" }
+    ],
     "areaServed": ["Nanterre", "Rueil-Malmaison", "Suresnes", "Puteaux", "Colombes"],
     "sameAs": ["https://www.facebook.com/p/Carrosserie-Clemenceau-92-100087219401679/", "https://www.instagram.com/carrosserieclemenceau92/"]
   }
@@ -71,6 +75,7 @@
       <a class="nav__logo" href="#top" aria-label="Clemenceau 92 — accueil"><picture><source media="(max-width: 900px)" srcset="/media/logo-stack-light.svg" width="520" height="127" /><img class="nav__logo-img" src="/media/logo-h-light.svg" width="782" height="56" alt="Clemenceau 92" fetchpriority="high" /></picture></a>
       <nav class="nav__links" aria-label="Navigation principale">
         <a href="#services">Services</a>
+        <a href="#offre">Pare-brise</a>
         <a href="#realisations">Réalisations</a>
         <a href="#avis-google">Avis</a>
         <a href="#faq">FAQ</a>
@@ -89,11 +94,11 @@
     <nav class="mmenu__inner" aria-label="Menu">
       <ul class="mmenu__list">
         <li style="--i:0"><a href="#services"><span class="mmenu__num">01</span><span class="mmenu__label">Services</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:1"><a href="#atelier"><span class="mmenu__num">02</span><span class="mmenu__label">L’atelier</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:2"><a href="#prestations"><span class="mmenu__num">03</span><span class="mmenu__label">Toutes les prestations</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:3"><a href="#realisations"><span class="mmenu__num">04</span><span class="mmenu__label">Réalisations</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:4"><a href="#avis-google"><span class="mmenu__num">05</span><span class="mmenu__label">Avis Google</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        <li style="--i:5"><a href="#etapes"><span class="mmenu__num">06</span><span class="mmenu__label">Comment ça se passe</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:1"><a href="#offre"><span class="mmenu__num">02</span><span class="mmenu__label">Offre pare-brise</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:2"><a href="#atelier"><span class="mmenu__num">03</span><span class="mmenu__label">L’atelier</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:3"><a href="#mecanique"><span class="mmenu__num">04</span><span class="mmenu__label">Mécanique & entretien</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:4"><a href="#realisations"><span class="mmenu__num">05</span><span class="mmenu__label">Réalisations</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li style="--i:5"><a href="#avis-google"><span class="mmenu__num">06</span><span class="mmenu__label">Avis Google</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
         <li style="--i:6"><a href="#faq"><span class="mmenu__num">07</span><span class="mmenu__label">FAQ</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
         <li style="--i:7"><a href="#zone"><span class="mmenu__num">08</span><span class="mmenu__label">Venir à l’atelier</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
         <li style="--i:8"><a href="#devis"><span class="mmenu__num">09</span><span class="mmenu__label">Devis gratuit</span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
@@ -174,6 +179,8 @@
             <span>Visite de l’expert à l’atelier</span><i>✦</i>
             <span>Gestion de votre sinistre</span><i>✦</i>
             <span>Voitures · utilitaires · motos</span><i>✦</i>
+            <span>Franchise bris de glace remboursée</span><i>✦</i>
+            <span>Mécanique &amp; entretien</span><i>✦</i>
             <span>07 77 00 71 76 · 01 43 33 04 95</span><i>✦</i>
           </div>
         </div>
@@ -275,10 +282,10 @@
     <!-- BANDEAU CINÉTIQUE : suit la vitesse et le sens du défilement -->
     <section class="kinetic" aria-label="Nos engagements">
       <div class="kinetic__row" data-dir="1">
-        <div class="kinetic__track"><span>Devis gratuit</span><i>✦</i><span class="is-outline">Visite de l’expert à l’atelier</span><i>✦</i><span>Gestion de sinistre</span><i>✦</i><span class="is-outline">Prix affichés</span><i>✦</i></div>
+        <div class="kinetic__track"><span>Devis gratuit</span><i>✦</i><span class="is-outline">Visite de l’expert à l’atelier</span><i>✦</i><span>Franchise remboursée</span><i>✦</i><span class="is-outline">Gestion de sinistre</span><i>✦</i><span>Prix affichés</span><i>✦</i></div>
       </div>
       <div class="kinetic__row" data-dir="-1">
-        <div class="kinetic__track"><span class="is-outline">Carrosserie</span><i>✦</i><span>Peinture</span><i>✦</i><span class="is-outline">Pare-brise</span><i>✦</i><span>Utilitaires</span><i>✦</i><span class="is-outline">Motos</span><i>✦</i></div>
+        <div class="kinetic__track"><span class="is-outline">Carrosserie</span><i>✦</i><span>Peinture</span><i>✦</i><span class="is-outline">Pare-brise</span><i>✦</i><span>Mécanique</span><i>✦</i><span class="is-outline">Utilitaires</span><i>✦</i><span>Motos</span><i>✦</i></div>
       </div>
     </section>
 
@@ -334,6 +341,34 @@
         <div class="panels__hold" aria-hidden="true"></div>
       </div>
     </section>
+
+    <!-- OFFRE PARE-BRISE : deux avantages au choix, conditions affichées -->
+    <section class="offer container" id="offre" aria-labelledby="offer-title">
+      <div class="offer__head">
+        <p class="label" data-scroll-text>Offre pare-brise</p>
+        <h2 class="offer__title" id="offer-title" data-flip>Franchise remboursée<br /><span class="accent">ou révision offerte</span></h2>
+        <p class="offer__lead" data-scroll-read>Pour un remplacement de pare-brise pris en charge par votre assurance, vous choisissez l’un des deux avantages. Dites-le-nous avant la réparation&nbsp;: l’offre est portée sur le devis, puis sur la facture.</p>
+      </div>
+      <div class="offer__cards">
+        <article class="ocard" data-tilt data-parallax="-.06">
+          <span class="ocard__num">01</span>
+          <h3 class="ocard__title">Franchise<br /><span class="accent">remboursée</span></h3>
+          <p class="ocard__text">La franchise bris de glace retenue par votre assureur vous est remboursée par l’atelier.</p>
+        </article>
+        <article class="ocard" data-tilt data-parallax=".05">
+          <span class="ocard__num">02</span>
+          <h3 class="ocard__title">Révision-vidange<br /><span class="accent">offerte</span></h3>
+          <p class="ocard__text">Vous préférez l’entretien&nbsp;? L’atelier offre la révision-vidange à la place du remboursement.</p>
+        </article>
+        <article class="ocard ocard--cta" data-tilt data-parallax="-.04">
+          <h3 class="ocard__title">Votre impact<br /><span class="accent">en photo</span></h3>
+          <p class="ocard__text">Envoyez une photo de l’impact ou de la fissure&nbsp;: vous saurez s’il faut remplacer le pare-brise, et sous quel délai.</p>
+          <a class="wa-btn" href="https://wa.me/33777007176?text=Bonjour%2C%20je%20souhaite%20un%20devis.%20Voici%20les%20photos%20%3A" target="_blank" rel="noopener" data-wa-icon><span>Envoyer sur WhatsApp</span></a>
+        </article>
+      </div>
+      <p class="offer__terms">Une seule des deux offres, au choix, pour un remplacement pris en charge au titre de la garantie bris de glace. Selon votre contrat et les conditions de l’atelier&nbsp;; l’avantage figure sur le devis et sur la facture. Détails au <a href="tel:+33777007176">07 77 00 71 76</a>.</p>
+    </section>
+
     <!-- CATALOGUE : carrousel 3D piloté par le défilement -->
     <section class="presta" id="prestations">
       <div class="presta__stage">
@@ -343,9 +378,9 @@
         <div class="presta__info container">
           <p class="label" data-scroll-text>Catalogue de l’atelier</p>
           <h2 class="presta__title" data-flip>Toutes nos<br /><span class="accent">prestations</span></h2>
-          <p class="presta__stat"><span class="presta__num" data-presta-count data-to="0">0</span> <span>prestations</span> · <b data-presta-domains>5</b> <span>domaines · toutes marques</span></p>
+          <p class="presta__stat"><span class="presta__num" data-presta-count data-to="0">0</span> <span>prestations</span> · <b data-presta-domains>6</b> <span>domaines · toutes marques</span></p>
           <div class="presta__active" aria-live="polite">
-            <p class="presta__index"><span class="presta__current">01</span><span class="presta__total"> / 05</span></p>
+            <p class="presta__index"><span class="presta__current">01</span><span class="presta__total"> / 06</span></p>
             <p class="presta__name">Carrosserie</p>
             <p class="presta__active-count"></p>
           </div>
@@ -355,6 +390,44 @@
           <span class="presta__hint label">Faites défiler</span>
           <div class="presta__track"><i class="presta__fill"></i><div class="presta__ticks"></div></div>
         </div>
+      </div>
+    </section>
+
+
+    <!-- MÉCANIQUE : services annoncés sur l'enseigne de l'atelier -->
+    <section class="mecha container" id="mecanique" aria-labelledby="mecha-title">
+      <div class="mecha__grid">
+        <div class="mecha__text">
+          <p class="label" data-scroll-text>Mécanique &amp; entretien</p>
+          <h2 class="mecha__title" id="mecha-title" data-flip>La mécanique,<br /><span class="accent">au même endroit</span></h2>
+          <p class="mecha__lead" data-scroll-read>C’est écrit sur l’enseigne&nbsp;: révision, entretien, kit de distribution, kit d’embrayage. Votre véhicule n’a pas besoin de changer de garage entre la carrosserie et la mécanique.</p>
+          <a class="outline-btn" href="#devis">Demander un devis <span>↗</span></a>
+        </div>
+        <figure class="mecha__media" data-parallax=".08">
+          <img src="/media/presta-06.webp" width="1376" height="986" alt="Les ponts élévateurs de l’atelier, véhicules en cours d’intervention" loading="lazy" />
+        </figure>
+      </div>
+      <div class="mecha__cards">
+          <article class="mcard" data-tilt data-parallax="-.05">
+            <span class="mcard__ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M24 6c6 8 10 13 10 18a10 10 0 0 1-20 0c0-5 4-10 10-18Z"/><path d="M19 26a5 5 0 0 0 5 5"/></svg></span>
+            <h3 class="mcard__title">Révision &amp; vidange</h3>
+            <p class="mcard__text">Entretien courant, vidange et filtres, aux intervalles prévus par le constructeur.</p>
+          </article>
+          <article class="mcard" data-tilt data-parallax=".04">
+            <span class="mcard__ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="16" cy="28" r="9"/><circle cx="34" cy="18" r="6"/><path d="M16 19c8-4 14-6 18-6M16 37c10 0 16-8 18-13"/></svg></span>
+            <h3 class="mcard__title">Kit de distribution</h3>
+            <p class="mcard__text">Courroie, galets et pompe à eau remplacés au kilométrage prévu, avant la casse.</p>
+          </article>
+          <article class="mcard" data-tilt data-parallax="-.03">
+            <span class="mcard__ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="6"/><path d="M24 8v10M24 30v10M8 24h10M30 24h10"/></svg></span>
+            <h3 class="mcard__title">Kit d’embrayage</h3>
+            <p class="mcard__text">Embrayage qui patine ou pédale devenue dure&nbsp;: kit complet remplacé à l’atelier.</p>
+          </article>
+          <article class="mcard" data-tilt data-parallax=".05">
+            <span class="mcard__ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="4"/><path d="M13 13l7 7M35 13l-7 7M13 35l7-7M35 35l-7-7"/></svg></span>
+            <h3 class="mcard__title">Freins &amp; contrôles</h3>
+            <p class="mcard__text">Plaquettes, disques et contrôle des niveaux pendant que le véhicule est chez nous.</p>
+          </article>
       </div>
     </section>
 
@@ -557,7 +630,8 @@
             <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Suivi de votre sinistre</span></li>
             <li><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Noté 5,0 sur 5 par 291 clients</span></li>
           </ul>
-          <p class="quote__alt"><span>Vous préférez appeler&nbsp;?</span><br /><a href="tel:+33777007176">07 77 00 71 76</a> · <a href="tel:+33143330495">01 43 33 04 95</a></p>
+          <a class="wa-btn wa-btn--lg" href="https://wa.me/33777007176?text=Bonjour%2C%20je%20souhaite%20un%20devis.%20Voici%20les%20photos%20%3A" target="_blank" rel="noopener" data-wa-icon><span>Envoyer mes photos sur WhatsApp</span></a>
+          <p class="quote__alt"><span>Vous préférez appeler&nbsp;?</span><br /><a href="tel:+33777007176">07 77 00 71 76</a> · <a href="tel:+33143330495">01 43 33 04 95</a> · <a href="mailto:clemenceau92@sfr.fr">clemenceau92@sfr.fr</a></p>
         </div>
 
         <form class="qf" id="quote-form" novalidate>
@@ -687,6 +761,7 @@
             <a class="footer__tel" href="tel:+33777007176">07 77 00 71 76</a>
             <a href="tel:+33143330495">01 43 33 04 95</a>
             <a href="mailto:clemenceau92@sfr.fr">clemenceau92@sfr.fr</a>
+            <a href="https://wa.me/33777007176?text=Bonjour%2C%20je%20souhaite%20un%20devis.%20Voici%20les%20photos%20%3A" target="_blank" rel="noopener">WhatsApp&nbsp;: envoyer des photos</a>
           </address>
           <p class="footer__small">Entrée et stationnement accessibles en fauteuil roulant</p>
         </div>
@@ -703,7 +778,9 @@
           <p class="label">Navigation</p>
           <ul>
             <li><a href="#services">Services</a></li>
+            <li><a href="#offre">Offre pare-brise</a></li>
             <li><a href="#atelier">L’atelier</a></li>
+            <li><a href="#mecanique">Mécanique &amp; entretien</a></li>
             <li><a href="#prestations">Toutes les prestations</a></li>
             <li><a href="#realisations">Réalisations</a></li>
             <li><a href="#avis-google">Avis Google</a></li>
