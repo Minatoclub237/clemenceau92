@@ -12,6 +12,8 @@ import { initGoogleReviews } from './google-reviews.js'
 import { initDock } from './dock.js'
 import { initBeforeAfter } from './before-after.js'
 import { initCrack } from './crack.js'
+import { initLightbox } from './lightbox.js'
+import { initZone } from './zone.js'
 
 gsap.registerPlugin(ScrollTrigger)
 // Mobile : la barre d'adresse qui se replie ne doit pas recalculer (et faire sauter) les animations
@@ -125,9 +127,9 @@ const presta = initPrestations(document.getElementById('prestations'), { lenis, 
 /* ---------- Avis Google en boucle ---------- */
 initGoogleReviews(document.getElementById('avis-google'), { lenis, reduced })
 
-/* ---------- Formulaire de devis → e-mail pré-rempli ---------- */
+/* ---------- Formulaire de devis : photos jointes → partage (mobile) ou e-mail pré-rempli (ordinateur) ---------- */
 const MAIL_TO = 'clemenceau92@sfr.fr'
-const M = { subject: 'Demande de devis', hello: 'Bonjour,', ask: 'Je souhaite recevoir un devis gratuit.', name: 'Nom', phone: 'Téléphone', email: 'E-mail', make: 'Marque', model: 'Modèle', year: 'Année', work: 'Intervention', msg: 'Message', photos: '(Photos des dégâts en pièce jointe)' }
+const M = { subject: 'Demande de devis', hello: 'Bonjour,', ask: 'Je souhaite recevoir un devis gratuit.', name: 'Nom', phone: 'Téléphone', email: 'E-mail', make: 'Marque', model: 'Modèle', year: 'Année', work: 'Intervention', msg: 'Message', photos: (n) => n ? `(${n} photo${n > 1 ? 's' : ''} des dégâts jointe${n > 1 ? 's' : ''})` : '(Photos des dégâts à joindre)' }
 {
   const form = document.getElementById('quote-form')
   const brand = form.elements.marque
@@ -137,6 +139,28 @@ const M = { subject: 'Demande de devis', hello: 'Bonjour,', ask: 'Je souhaite re
   // Modèle et année se déverrouillent une fois la marque choisie (comme la référence)
   brand.addEventListener('change', () => form.querySelectorAll('[data-needs-brand]').forEach((el) => { el.disabled = !brand.value }))
   const err = form.querySelector('.qf__error')
+  const status = form.querySelector('.qf__status')
+
+  // Photos : aperçus, retrait une à une, 6 au maximum
+  const MAX = 6
+  let photos = []
+  const input = form.elements.photos
+  const thumbs = form.querySelector('.qf__thumbs')
+  const renderThumbs = () => {
+    thumbs.querySelectorAll('img').forEach((im) => URL.revokeObjectURL(im.src))
+    thumbs.innerHTML = photos.map((f, k) => `<li><img src="${URL.createObjectURL(f)}" alt="Photo ${k + 1}" /><button type="button" data-rm="${k}" aria-label="Retirer la photo ${k + 1}">×</button></li>`).join('')
+  }
+  input.addEventListener('change', () => {
+    photos = [...photos, ...[...input.files].filter((f) => f.type.startsWith('image/'))].slice(0, MAX)
+    input.value = ''
+    renderThumbs()
+  })
+  thumbs.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-rm]')
+    if (!b) return
+    photos.splice(+b.dataset.rm, 1)
+    renderThumbs()
+  })
   form.addEventListener('input', (e) => e.target.classList.remove('is-invalid'))
   form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -151,11 +175,27 @@ const M = { subject: 'Demande de devis', hello: 'Bonjour,', ask: 'Je souhaite re
       M.hello, '', M.ask, '',
       `${M.name} : ${v('nom')}`, `${M.phone} : ${v('telephone')}`, `${M.email} : ${v('email')}`, '',
       `${M.make} : ${v('marque')}`, `${M.model} : ${v('modele')}`, `${M.year} : ${v('annee')}`, `${M.work} : ${v('intervention')}`, '',
-      `${M.msg} :`, v('message'), '', M.photos,
+      `${M.msg} :`, v('message'), '', M.photos(photos.length),
     ].join('\n')
+    const say = (t) => { status.textContent = t; status.hidden = false }
+    // Écran tactile : feuille de partage du système (WhatsApp, Mail…) avec les photos ; ordinateur : e-mail pré-rempli
+    const share = { title: subject, text: `${subject}\n\n${body}`, files: photos }
+    if (photos.length && matchMedia('(pointer: coarse)').matches && navigator.canShare?.(share)) {
+      navigator.share(share)
+        .then(() => say('Demande partagée. L’atelier vous recontacte rapidement.'))
+        .catch((er) => { if (er.name !== 'AbortError') say('Le partage n’a pas abouti : appelez le 07 77 00 71 76.') })
+      return
+    }
     window.location.href = `mailto:${MAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    say(photos.length ? `Votre messagerie s’ouvre : joignez-y vos ${photos.length} photo${photos.length > 1 ? 's' : ''} avant d’envoyer.` : 'Votre messagerie s’ouvre avec la demande pré-remplie.')
   })
 }
+
+/* ---------- Réalisations : visionneuse ---------- */
+initLightbox(document.getElementById('realisations'), { lenis })
+
+/* ---------- Venir à l'atelier : carte ---------- */
+initZone(document.getElementById('zone'), { reduced })
 
 /* ---------- FAQ ---------- */
 initFaq(document.getElementById('faq'), { reduced })
