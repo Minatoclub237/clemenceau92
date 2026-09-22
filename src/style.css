@@ -1006,45 +1006,45 @@ img, video, canvas, svg { display: block; }
 .qf__status { padding: 10px 12px; border-radius: 8px; background: #eef1ff; color: var(--blue-deep); font-size: 14px; line-height: 1.4; }
 
 /* ---------------- VENIR À L'ATELIER : carte ---------------- */
-.zone { position: relative; padding-block: 9vw 2vw; }
-.zone__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: 4vw; }
+.zone { position: relative; padding-block: 6.5vw 1vw; }
+.zone__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 480px); align-items: center; gap: 3.4vw; }
 .zone__text .label { color: #9a9a92; margin-bottom: 1.2vw; }
-.zone__title { font-family: var(--futur); font-size: var(--display); font-weight: 400; line-height: 1.05; letter-spacing: .03em; text-transform: uppercase; -webkit-text-stroke: .03em currentColor; }
-.zone__lead { margin-top: 1.4vw; max-width: 34em; font-size: max(16px, 1.15vw); line-height: 1.45; color: #cfcfc8; }
-.zone__list { margin-top: 2vw; border-top: 1px solid #34342f; }
-.zone__list li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 2px; border-bottom: 1px solid #34342f; font-size: 16px; transition: color .3s, padding .3s var(--ease); }
+.zone__title { font-family: var(--futur); font-size: max(24px, 2.2vw); font-weight: 400; line-height: 1.1; letter-spacing: .04em; text-transform: uppercase; }
+.zone__lead { margin-top: 1vw; max-width: 30em; font-size: max(15px, 1.02vw); line-height: 1.45; color: #cfcfc8; }
+.zone__list { margin-top: 1.4vw; border-top: 1px solid #34342f; }
+.zone__list li { display: flex; justify-content: space-between; gap: 16px; padding: 9px 2px; border-bottom: 1px solid #34342f; font-size: 15px; transition: color .3s, padding .3s var(--ease); }
 .zone__list b { font-family: var(--mono); font-size: 13px; font-weight: 400; letter-spacing: .04em; color: #9a9a92; transition: color .3s; }
 .zone__list li.is-on { color: var(--cyan); padding-left: 10px; }
 .zone__list li.is-on b { color: var(--cyan); }
 .zone__note { margin-top: 12px; font-size: 13px; color: #8a8a83; }
 .zone__actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.zone__actions .outline-btn { margin-top: 1.6vw; }
+.zone__actions .outline-btn { margin-top: 1.2vw; }
 .zone__actions .outline-btn:hover { background: #f2f2ee; color: var(--ink); }
 
-.zone__map { margin: 0; }
+.zone__map { margin: 0 0 0 auto; width: 100%; max-width: 480px; }
 .zone__svg { width: 100%; height: auto; overflow: visible; }
-.zone__rings circle { fill: none; stroke: rgba(255,255,255,.16); stroke-width: 1; stroke-dasharray: 1 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.4s var(--ease); }
-.zone__rings circle:nth-child(2) { transition-delay: .1s; }
-.zone__rings circle:nth-child(3) { transition-delay: .2s; }
-.zone__rings circle:nth-child(4) { transition-delay: .3s; }
-.zone__rings text { font-family: var(--mono); font-size: 11px; fill: #6d6d66; opacity: 0; transition: opacity .6s .8s; }
+.zone__rings circle { fill: none; stroke: rgba(255,255,255,.16); stroke-width: 1; stroke-dasharray: 100 100; stroke-dashoffset: 100; }
+.zone__rings text { font-family: var(--mono); font-size: 11px; fill: #6d6d66; opacity: 0; }
 .zone__landmark rect { fill: none; stroke: #9a9a92; stroke-width: 1.2; }
 .zone__landmark text { font-size: 13px; fill: #9a9a92; }
-.zone__landmark { opacity: 0; transition: opacity .6s 1s; }
-.zone__ray { stroke: rgba(0,173,238,.45); stroke-width: 1; stroke-dasharray: 1 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1s var(--ease) calc(.5s + var(--i) * .12s), stroke .3s, stroke-width .3s; }
-.zone__dot { fill: #f2f2ee; transform-box: fill-box; transform-origin: center; transform: scale(0); transition: transform .5s cubic-bezier(.34, 1.56, .64, 1) calc(.9s + var(--i) * .12s), fill .3s; }
-.zone__name { font-size: 15px; font-weight: 600; fill: #f2f2ee; opacity: 0; transition: opacity .5s calc(1s + var(--i) * .12s), fill .3s; }
+.zone__landmark { opacity: 0; }
+.zone__ray { stroke: rgba(0,173,238,.45); stroke-width: 1; stroke-dasharray: 100 100; stroke-dashoffset: 100; transition: stroke .3s, stroke-width .3s; }
+.zone__dot { fill: #f2f2ee; transform-box: fill-box; transform-origin: center; transition: fill .3s; }
+.zone__name { font-size: 15px; font-weight: 600; fill: #f2f2ee; opacity: 0; transition: fill .3s; }
 .zone__km { font-family: var(--mono); font-size: 12px; font-weight: 400; fill: var(--cyan); }
 .zone__pin { fill: var(--brand); stroke: #fff; stroke-width: 2.5; }
 .zone__pulse { fill: none; stroke: var(--cyan); stroke-width: 1.5; transform-box: fill-box; transform-origin: center; animation: zone-ping 2.4s ease-out infinite; }
+.zone__home { transform-box: fill-box; transform-origin: center; }
 .zone__home text { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; fill: #fff; }
 @keyframes zone-ping { 0% { transform: scale(.7); opacity: .9; } 80%, 100% { transform: scale(2.6); opacity: 0; } }
+/* Animations réduites : tout est posé d'emblée */
 .zone.is-in .zone__rings circle, .zone.is-in .zone__ray { stroke-dashoffset: 0; }
 .zone.is-in .zone__rings text, .zone.is-in .zone__landmark, .zone.is-in .zone__name { opacity: 1; }
 .zone.is-in .zone__dot { transform: none; }
+.zone.is-in .zone__svg { opacity: 1; }
 /* Survol : la ville s'allume sur la carte et dans la liste */
 .zone__pt.is-on .zone__ray { stroke: var(--cyan); stroke-width: 2; }
-.zone__pt.is-on .zone__dot { fill: var(--cyan); transform: scale(1.5); transition-delay: 0s; }
+.zone__pt.is-on .zone__dot { fill: var(--cyan); }
 .zone__pt.is-on .zone__name { fill: var(--cyan); }
 @media (prefers-reduced-motion: reduce) { .zone__pulse { animation: none; } }
 @media (max-width: 900px) {
