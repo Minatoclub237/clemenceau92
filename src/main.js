@@ -450,16 +450,6 @@ function buildMotion({ intro }) {
   /* ================= OFFRE PARE-BRISE ================= */
   initOffer(document.getElementById('offre'), { reduced })
 
-  /* ================= MÉCANIQUE ================= */
-  const mecha = document.getElementById('mecanique')
-  autoParallax(mecha)
-  autoTilt(mecha, { max: 5 })
-  stagger(mecha.querySelectorAll('.mcard'), { y: 56, each: 0.09 })
-  gsap.fromTo(mecha.querySelector('.mecha__media img'), { scale: 1.16 }, {
-    scale: 1, ease: 'none',
-    scrollTrigger: { trigger: mecha.querySelector('.mecha__media'), start: 'top bottom', end: 'bottom top', scrub: true },
-  })
-
   /* ================= CATALOGUE ================= */
   const prestaNum = document.querySelector('[data-presta-count]')
   const prestaObj = { v: 0 }

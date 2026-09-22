@@ -23,12 +23,12 @@
     },
     {
       "source": "/nos-services/revision-de-voiture-a-nanterre.html",
-      "destination": "/#mecanique",
+      "destination": "/#prestations",
       "permanent": true
     },
     {
       "source": "/nos-services/entretien-de-voiture-a-nanterre.html",
-      "destination": "/#mecanique",
+      "destination": "/#prestations",
       "permanent": true
     },
     {
@@ -203,27 +203,27 @@
     },
     {
       "source": "/pneus-nanterre.html",
-      "destination": "/#mecanique",
+      "destination": "/#prestations",
       "permanent": true
     },
     {
       "source": "/pneus-rueil-malmaison.html",
-      "destination": "/#mecanique",
+      "destination": "/#prestations",
       "permanent": true
     },
     {
       "source": "/pneus-suresnes.html",
-      "destination": "/#mecanique",
+      "destination": "/#prestations",
       "permanent": true
     },
     {
       "source": "/pneus-puteaux.html",
-      "destination": "/#mecanique",
+      "destination": "/#prestations",
       "permanent": true
     },
     {
       "source": "/pneus-colombes.html",
-      "destination": "/#mecanique",
+      "destination": "/#prestations",
       "permanent": true
     },
     {

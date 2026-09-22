@@ -1105,22 +1105,6 @@ img, video, canvas, svg { display: block; }
 .offer__terms { margin-top: 2vw; max-width: 62em; font-size: 13px; line-height: 1.5; color: #8a8a83; }
 .offer__terms a { color: #cfcfc8; text-decoration: underline; text-underline-offset: 3px; }
 
-/* ---------------- MÉCANIQUE & ENTRETIEN ---------------- */
-.mecha { position: relative; z-index: 2; background: var(--bg); padding-block: 8vw 2vw; }
-.mecha__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: center; gap: 4vw; }
-.mecha__text .label { color: #9a9a92; margin-bottom: 1.2vw; }
-.mecha__title { font-family: var(--futur); font-size: var(--display); font-weight: 400; line-height: 1.05; letter-spacing: .03em; text-transform: uppercase; -webkit-text-stroke: .03em currentColor; }
-.mecha__lead { margin-top: 1.4vw; font-size: max(16px, 1.15vw); line-height: 1.45; color: #cfcfc8; }
-.mecha__media { margin: 0; border-radius: 16px; overflow: hidden; }
-.mecha__media img { width: 100%; height: auto; display: block; will-change: transform; }
-.mecha__cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4vw; margin-top: 3.4vw; perspective: 1400px; }
-.mcard { display: flex; flex-direction: column; gap: 10px; padding: 1.7vw 1.4vw 1.9vw; border: 1px solid #3d3d3d; border-radius: 14px; background: #2e2e2e;
-  transform-style: preserve-3d; will-change: transform; transition: border-color .4s, background-color .4s; }
-.mcard:hover { border-color: rgba(0,173,238,.4); background: #343434; }
-.mcard__ico { display: block; width: 38px; height: 38px; color: var(--cyan); }
-.mcard__ico svg { width: 100%; height: 100%; }
-.mcard__title { font-family: var(--futur); font-size: max(15px, 1.05vw); font-weight: 400; line-height: 1.2; letter-spacing: .02em; }
-.mcard__text { font-size: 15px; line-height: 1.4; color: var(--muted); }
 
 /* Perspective pour l'arrivée en profondeur du formulaire */
 .quote__box { perspective: 1600px; }
@@ -1133,14 +1117,9 @@ img, video, canvas, svg { display: block; }
   .offer__cards { grid-template-columns: 1fr; gap: 14px; margin-top: 28px; }
   .ocard { padding: 22px 20px 24px; }
   .offer__terms { margin-top: 22px; }
-  .mecha { padding-block: 70px 10px; }
-  .mecha__grid { grid-template-columns: 1fr; gap: 26px; }
-  .mecha__cards { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 26px; }
-  .mcard { padding: 16px 14px 18px; }
   .wa-btn--lg { margin-top: 20px; }
 }
 @media (max-width: 560px) {
-  .mecha__cards { grid-template-columns: 1fr; }
 }
 
 /* =====================================================================

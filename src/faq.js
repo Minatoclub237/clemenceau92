@@ -50,7 +50,7 @@ const FAQS = {
       cta: { label: 'Voir les réalisations', href: '#realisations' } },
     { q: 'Faites-vous aussi la mécanique ?',
       a: 'Oui, c’est annoncé sur l’enseigne de l’atelier : révision, entretien, kit de distribution et kit d’embrayage. La carrosserie et la mécanique se font au même endroit.',
-      cta: { label: 'Voir la mécanique', href: '#mecanique' } },
+      cta: { label: 'Voir toutes les prestations', href: '#prestations' } },
     { q: 'Travaillez-vous pour les entreprises ?',
       a: 'Oui, pour les particuliers comme pour les entreprises : l’atelier répare aussi les véhicules de société.',
       cta: { label: 'Appeler l’atelier', href: TEL } },
