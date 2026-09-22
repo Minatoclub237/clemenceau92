@@ -16,7 +16,8 @@ export function initOffer(section, { reduced }) {
     return
   }
 
-  const crack = crackSvg ? initCrack(crackSvg) : null
+  // Impact placé dans l'espace entre la 1re et la 2e plaque : la fissure ne passe pas sur les titres
+  const crack = crackSvg ? initCrack(crackSvg, { seed: 41, at: [0.33, 0.52], scale: 1.05 }) : null
   const desktop = window.matchMedia('(min-width: 901px)').matches
   const tl = gsap.timeline({
     scrollTrigger: desktop
