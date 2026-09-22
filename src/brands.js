@@ -21,7 +21,7 @@ const isLight = (hex) => {
 const logo = ({ title, hex, path }) =>
   `<li class="brand" title="${title}">` +
   `<svg viewBox="0 0 24 24" role="img" aria-label="${title}">` +
-  `<path d="${path}" fill="#${hex}"${isLight(hex) ? ' stroke="#1a1a18" stroke-width=".35" paint-order="stroke"' : ''}/>` +
+  `<path d="${path}" fill="#${hex}"${isLight(hex) ? ' stroke="#252525" stroke-width=".35" paint-order="stroke"' : ''}/>` +
   `</svg></li>`
 
 // Deux jeux identiques : l'animation CSS translate de -50 % boucle sans raccord

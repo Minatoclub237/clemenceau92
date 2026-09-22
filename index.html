@@ -5,27 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Intro de chargement : styles critiques en ligne, l'animation démarre avant le JavaScript -->
   <style>
-    html,body{background:#181815}
-    #loader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0b0b0a;clip-path:inset(0 0 0 0);animation:ld-safety 0s linear 7s forwards}
-    .loader__inner{display:flex;flex-direction:column;align-items:center;gap:26px;width:min(420px,70vw)}
-    .loader__logo{position:relative;width:100%}
-    .loader__logo img{display:block;width:100%;height:auto;clip-path:inset(0 100% 0 0);animation:ld-wipe 1s cubic-bezier(.65,0,.35,1) .2s forwards}
-    .loader__logo::after{content:"";position:absolute;top:-10%;bottom:-10%;left:0;width:2px;background:#8fdcff;box-shadow:0 0 22px 6px rgba(0,173,238,.85);opacity:0;animation:ld-scan 1s cubic-bezier(.65,0,.35,1) .2s forwards}
+    html,body{background:#252525}
+    #loader{position:fixed;inset:0;z-index:9999;display:grid;place-items:end center;background:#252525 url(/media/loader-3d.webp) center/cover no-repeat;clip-path:inset(0 0 0 0);animation:ld-safety 0s linear 7s forwards}
+    .loader__inner{display:flex;flex-direction:column;align-items:center;gap:14px;width:min(420px,70vw);padding-bottom:9vh}
     .loader__bar{position:relative;width:100%;height:1px;background:rgba(255,255,255,.12);overflow:hidden}
     .loader__bar i{position:absolute;inset:0;background:#00adee;transform:scaleX(0);transform-origin:left;animation:ld-bar 1.3s cubic-bezier(.2,.7,.2,1) forwards}
     .loader__label{font:11px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5);opacity:0;animation:ld-fade .7s ease .8s forwards}
-    @keyframes ld-wipe{to{clip-path:inset(0 0 0 0)}}
-    @keyframes ld-scan{0%{left:0;opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
     @keyframes ld-bar{to{transform:scaleX(.86)}}
     @keyframes ld-fade{to{opacity:1}}
     @keyframes ld-safety{to{visibility:hidden}}
-    html.loader-quick .loader__logo img{clip-path:none;animation:none}
-    html.loader-quick .loader__logo::after,html.loader-quick .loader__bar,html.loader-quick .loader__label{display:none}
-    @media (prefers-reduced-motion:reduce){.loader__logo img{clip-path:none;animation:none}.loader__logo::after{display:none}}
+    html.loader-quick .loader__bar,html.loader-quick .loader__label{display:none}
   </style>
   <noscript><style>#loader{display:none}</style></noscript>
   <script>try{if(sessionStorage.getItem("c92-intro"))document.documentElement.classList.add("loader-quick")}catch(e){}</script>
-  <link rel="preload" as="image" href="/media/logo-stack-dark.svg" />
+  <link rel="preload" as="image" href="/media/loader-3d.webp" />
   <title>Carrosserie et pare-brise à Nanterre — Clemenceau 92</title>
   <meta name="description" content="Carrosserie et pare-brise au 95 avenue de la Liberté, à Nanterre : tôlerie, peinture en cabine, sinistre suivi avec l’expert à l’atelier. Noté 5,0 sur 5 par 291 clients sur Google." />
   <link rel="preload" as="image" href="/media/hero-atelier.webp" />
@@ -33,7 +26,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#181815" />
+  <meta name="theme-color" content="#252525" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,7 +57,6 @@
 <body>
   <div id="loader" aria-hidden="true">
     <div class="loader__inner">
-      <div class="loader__logo"><img src="/media/logo-stack-dark.svg" width="520" height="127" alt="" /></div>
       <div class="loader__bar"><i></i></div>
       <p class="loader__label">Nanterre — 92000</p>
     </div>
@@ -72,7 +64,7 @@
 
   <header class="nav" id="nav">
     <div class="nav__bar">
-      <a class="nav__logo" href="#top" aria-label="Clemenceau 92 — accueil"><picture><source media="(max-width: 900px)" srcset="/media/logo-stack-light.svg" width="520" height="127" /><img class="nav__logo-img" src="/media/logo-h-light.svg" width="782" height="56" alt="Clemenceau 92" fetchpriority="high" /></picture></a>
+      <a class="nav__logo" href="#top" aria-label="Clemenceau 92 — accueil"><img class="nav__logo-img" src="/media/logo-nav-3d.webp" width="1126" height="328" alt="Clemenceau 92" fetchpriority="high" /></a>
       <nav class="nav__links" aria-label="Navigation principale">
         <a href="#services">Services</a>
         <a href="#offre">Pare-brise</a>
@@ -780,7 +772,7 @@
       <div class="footer__mark" aria-hidden="true" data-footer-mark>Clemenceau<br />92</div>
       <div class="footer__cols">
         <div class="footer__col footer__col--brand">
-          <a class="footer__logo-link" href="#top" aria-label="Clemenceau 92 — retour en haut de page"><img class="footer__logo" src="/media/logo-stack-dark.svg" width="520" height="127" alt="" loading="lazy" /></a>
+          <a class="footer__logo-link" href="#top" aria-label="Clemenceau 92 — retour en haut de page"><img class="footer__logo" src="/media/logo-footer-3d.webp" width="1112" height="318" alt="" loading="lazy" /></a>
           <p class="footer__pitch">Carrosserie, peinture en cabine et pare-brise à Nanterre. Votre sinistre suivi avec l’expert, directement à l’atelier.</p>
           <p class="label footer__langs">Particuliers · entreprises</p>
         </div>
