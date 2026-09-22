@@ -1,13 +1,14 @@
 // Carte « Venir à l'atelier » : la scène est retenue à l'écran (sticky) et la carte se construit
-// AU DÉFILEMENT — anneaux, puis ville par ville : la liaison se trace, le point apparaît, le nom
+// AU DÉFILEMENT — contours des communes, puis ville par ville : la liaison se trace, le point apparaît, le nom
 // et la ligne correspondante de la liste s'affichent. Tout se rejoue à l'envers quand on remonte.
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export function initZone(section, { reduced }) {
   const svg = section.querySelector('.zone__svg')
-  const rings = svg.querySelectorAll('.zone__rings circle')
-  const ringLabels = svg.querySelectorAll('.zone__rings text')
+  const communes = svg.querySelectorAll('.zone__commune')
+  const host = svg.querySelector('.zone__commune--host')
+  const scale = svg.querySelector('.zone__scale')
   const points = [...svg.querySelectorAll('.zone__pt')]
   const rows = [...section.querySelectorAll('.zone__list li')]
   const landmark = svg.querySelector('.zone__landmark')
@@ -26,8 +27,10 @@ export function initZone(section, { reduced }) {
 
     tl.fromTo(svg, { scale: 0.92, opacity: 0.3 }, { scale: 1, opacity: 1, duration: 1.4, ease: 'power2.out' }, 0)
       .fromTo(home, { scale: 0 }, { scale: 1, duration: 0.5, ease: 'back.out(2)' }, 0.15)
-      .fromTo(rings, { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 1.1, stagger: 0.25, ease: 'none' }, 0.3)
-      .fromTo(ringLabels, { opacity: 0 }, { opacity: 1, duration: 0.5, stagger: 0.2 }, 0.8)
+      // Les communes se dessinent du centre vers l'extérieur
+      .fromTo(communes, { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 0.9, ease: 'none', stagger: { each: 0.03, from: 'center' } }, 0.25)
+      .fromTo(host, { fillOpacity: 0 }, { fillOpacity: 0.06, duration: 0.6 }, 1)
+      .fromTo(scale, { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.2)
 
     // Ville par ville : liaison → point → nom → ligne de la liste
     points.forEach((pt, i) => {
