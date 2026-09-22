@@ -1,6 +1,6 @@
-// Carte « Venir à l'atelier » : le tracé se construit AU DÉFILEMENT (scrub), comme le reste du site —
-// anneaux, liaisons, points puis noms. Le mouvement se rejoue à l'envers quand on remonte.
-// Chaque ville de la liste s'allume aussi sur la carte (et inversement) au survol.
+// Carte « Venir à l'atelier » : la scène est retenue à l'écran (sticky) et la carte se construit
+// AU DÉFILEMENT — anneaux, puis ville par ville : la liaison se trace, le point apparaît, le nom
+// et la ligne correspondante de la liste s'affichent. Tout se rejoue à l'envers quand on remonte.
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -8,34 +8,39 @@ export function initZone(section, { reduced }) {
   const svg = section.querySelector('.zone__svg')
   const rings = svg.querySelectorAll('.zone__rings circle')
   const ringLabels = svg.querySelectorAll('.zone__rings text')
-  const rays = svg.querySelectorAll('.zone__ray')
-  const dots = svg.querySelectorAll('.zone__dot')
-  const names = svg.querySelectorAll('.zone__name')
+  const points = [...svg.querySelectorAll('.zone__pt')]
+  const rows = [...section.querySelectorAll('.zone__list li')]
   const landmark = svg.querySelector('.zone__landmark')
   const home = svg.querySelector('.zone__home')
 
   if (reduced) {
     section.classList.add('is-in') // tout visible, sans animation
   } else {
+    // Sur mobile la scène n'est pas retenue : le tracé suit l'entrée de la section
+    const desktop = window.matchMedia('(min-width: 901px)').matches
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: section, start: 'top 78%', end: 'center 58%', scrub: 0.7 },
+      scrollTrigger: desktop
+        ? { trigger: section, start: 'top top', end: 'bottom bottom', scrub: 0.6 }
+        : { trigger: section, start: 'top 78%', end: 'bottom 75%', scrub: 0.6 },
     })
-    tl.fromTo(svg, { scale: 0.94, opacity: 0.35 }, { scale: 1, opacity: 1, duration: 1, ease: 'none' }, 0)
-      .fromTo(home, { scale: 0 }, { scale: 1, duration: 0.5, ease: 'back.out(2)' }, 0.05)
-      .fromTo(rings, { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 0.9, stagger: 0.12, ease: 'none' }, 0.1)
-      .fromTo(ringLabels, { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.08 }, 0.5)
-      .fromTo(rays, { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 0.7, stagger: 0.09, ease: 'none' }, 0.45)
-      .fromTo(dots, { scale: 0 }, { scale: 1, duration: 0.45, stagger: 0.09, ease: 'back.out(2.2)' }, 0.7)
-      .fromTo(names, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.45, stagger: 0.09 }, 0.8)
-      .fromTo(landmark, { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.1)
-    // La carte respire légèrement après le tracé
-    gsap.fromTo(svg, { yPercent: 4 }, {
-      yPercent: -4, ease: 'none',
-      scrollTrigger: { trigger: section, start: 'top bottom', end: 'bottom top', scrub: true },
+
+    tl.fromTo(svg, { scale: 0.92, opacity: 0.3 }, { scale: 1, opacity: 1, duration: 1.4, ease: 'power2.out' }, 0)
+      .fromTo(home, { scale: 0 }, { scale: 1, duration: 0.5, ease: 'back.out(2)' }, 0.15)
+      .fromTo(rings, { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 1.1, stagger: 0.25, ease: 'none' }, 0.3)
+      .fromTo(ringLabels, { opacity: 0 }, { opacity: 1, duration: 0.5, stagger: 0.2 }, 0.8)
+
+    // Ville par ville : liaison → point → nom → ligne de la liste
+    points.forEach((pt, i) => {
+      const at = 1.8 + i * 0.55
+      tl.fromTo(pt.querySelector('.zone__ray'), { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 0.5, ease: 'none' }, at)
+        .fromTo(pt.querySelector('.zone__dot'), { scale: 0 }, { scale: 1, duration: 0.35, ease: 'back.out(2.4)' }, at + 0.35)
+        .fromTo(pt.querySelector('.zone__name'), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35 }, at + 0.4)
+      if (rows[i]) tl.fromTo(rows[i], { opacity: 0.15, x: -14 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' }, at + 0.3)
     })
+    tl.fromTo(landmark, { opacity: 0 }, { opacity: 1, duration: 0.5 }, 1.8 + points.length * 0.55)
   }
 
-  const pairs = [...section.querySelectorAll('.zone__list [data-town]')].map((li) => [li, section.querySelector(`.zone__pt[data-town="${li.dataset.town}"]`)])
+  const pairs = rows.map((li) => [li, section.querySelector(`.zone__pt[data-town="${li.dataset.town}"]`)])
   const set = (on) => pairs.forEach(([li, pt]) => { const a = on === li || on === pt; li.classList.toggle('is-on', a); pt.classList.toggle('is-on', a) })
   pairs.forEach(([li, pt]) => {
     ;[li, pt].forEach((el) => {

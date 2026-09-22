@@ -1006,8 +1006,10 @@ img, video, canvas, svg { display: block; }
 .qf__status { padding: 10px 12px; border-radius: 8px; background: #eef1ff; color: var(--blue-deep); font-size: 14px; line-height: 1.4; }
 
 /* ---------------- VENIR À L'ATELIER : carte ---------------- */
-.zone { position: relative; padding-block: 6.5vw 1vw; }
-.zone__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 480px); align-items: center; gap: 3.4vw; }
+/* Scène retenue à l'écran : la carte se construit pendant qu'on défile (comme le hero et les panneaux) */
+.zone { position: relative; z-index: 2; background: var(--bg); height: 190vh; }
+.zone__stage { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; }
+.zone__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 480px); align-items: center; gap: 3.4vw; width: 100%; }
 .zone__text .label { color: #9a9a92; margin-bottom: 1.2vw; }
 .zone__title { font-family: var(--futur); font-size: max(24px, 2.2vw); font-weight: 400; line-height: 1.1; letter-spacing: .04em; text-transform: uppercase; }
 .zone__lead { margin-top: 1vw; max-width: 30em; font-size: max(15px, 1.02vw); line-height: 1.45; color: #cfcfc8; }
@@ -1048,7 +1050,9 @@ img, video, canvas, svg { display: block; }
 .zone__pt.is-on .zone__name { fill: var(--cyan); }
 @media (prefers-reduced-motion: reduce) { .zone__pulse { animation: none; } }
 @media (max-width: 900px) {
-  .zone { padding-block: 90px 20px; }
+  /* Mobile : pas de scène retenue (le contenu dépasse la hauteur d'écran), le tracé suit l'entrée de la section */
+  .zone { height: auto; padding-block: 80px 20px; }
+  .zone__stage { position: static; height: auto; }
   .zone__grid { grid-template-columns: 1fr; gap: 28px; }
   .zone__text .label { margin-bottom: 14px; }
   .zone__lead, .zone__list { margin-top: 18px; }
@@ -1070,7 +1074,6 @@ img, video, canvas, svg { display: block; }
 .wa-btn--lg { margin-top: 2vw; padding: 15px 22px; font-size: 16px; }
 
 /* ---------------- OFFRE PARE-BRISE ---------------- */
-/* Fond opaque : les scènes collantes qui précèdent (panneaux, catalogue) ne doivent pas transparaître */
 .offer { position: relative; z-index: 2; background: var(--bg); padding-block: 9vw 2vw; }
 .offer__head { max-width: 46em; }
 .offer__head .label { color: #9a9a92; margin-bottom: 1.2vw; }

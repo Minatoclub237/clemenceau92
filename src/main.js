@@ -475,8 +475,7 @@ function buildMotion({ intro }) {
   })
 
   /* ================= VENIR À L'ATELIER ================= */
-  parallax(document.querySelector('.zone__map'), { speed: 0.07 })
-  stagger(document.querySelectorAll('.zone__list li'), { y: 26, each: 0.06 })
+  // Le tracé et les lignes de la liste sont animés dans zone.js (scène retenue, scrub)
 
   /* ================= DEVIS ================= */
   scroll3d(document.querySelector('.qf'), { rotateX: 14, z: -120, y: 50, start: 'top 96%', end: 'top 55%' })
