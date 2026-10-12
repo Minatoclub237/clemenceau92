@@ -1,6 +1,4 @@
-import '@fontsource/michroma'
-import '@fontsource-variable/sora'
-import '@fontsource/monaspace-neon/400.css'
+import '@fontsource-variable/inter'
 import './style.css'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
